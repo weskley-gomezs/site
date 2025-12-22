@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from './Button';
-import { Mail, Instagram, Linkedin, ArrowUp } from 'lucide-react';
+import { Instagram, ArrowUp } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (route: 'home' | 'metodo' | 'servicos' | 'portfolio' | 'faq' | 'privacidade' | 'termos' | 'cookies') => void;
@@ -12,11 +12,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const whatsappUrl = "https://wa.me/5561981535040?text=Olá,%20vim%20pelo%20site%20da%20NX%20Company%20e%20gostaria%20de%20iniciar%20uma%20conversa%20estratégica.";
   const logoUrl = "https://i.imgur.com/etRVFsd.png";
 
-  // Links sociais com URLs reais de placeholder
   const socials = {
-    instagram: "https://www.instagram.com/nxcompany",
-    linkedin: "https://www.linkedin.com/company/nxcompany",
-    email: "mailto:contato@nxcompany.com"
+    instagram: "https://www.instagram.com/companynx/"
   };
 
   const handleNav = (route: any) => (e: React.MouseEvent) => {
@@ -59,9 +56,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Transformando ativos digitais em vantagem competitiva e lucro real. Design premium, tecnologia SaaS e performance de dados.
             </p>
             <div className="flex gap-4">
-              <a href={socials.instagram} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 hover:bg-[#ff5a00] text-gray-400 hover:text-white transition-all rounded-full"><Instagram size={20} /></a>
-              <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 hover:bg-[#ff5a00] text-gray-400 hover:text-white transition-all rounded-full"><Linkedin size={20} /></a>
-              <a href={socials.email} className="p-3 bg-white/5 hover:bg-[#ff5a00] text-gray-400 hover:text-white transition-all rounded-full"><Mail size={20} /></a>
+              <a href={socials.instagram} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 hover:bg-[#ff5a00] text-gray-400 hover:text-white transition-all rounded-full">
+                <Instagram size={24} />
+              </a>
             </div>
           </div>
 
