@@ -4,45 +4,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NX Company | Ativos Digitais</title>
+    <title>NX Company | Ativos Digitais de Alta Performance</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+      :root {
+        --nx-orange: #ff5a00;
+        --nx-black: #0a0a0a;
+      }
       body {
         font-family: 'Inter', sans-serif;
-        background-color: #0a0a0a;
+        background-color: var(--nx-black);
         color: #ffffff;
+        margin: 0;
+        overflow-x: hidden;
       }
       h1, h2, h3, h4, .font-display {
-        font-family: 'Space+Grotesk', sans-serif;
+        font-family: 'Space Grotesk', sans-serif;
       }
       .orange-gradient {
-        background: linear-gradient(135deg, #ff5a00 0%, #ff8c00 100%);
-      }
-      .text-orange {
-        color: #ff5a00;
-      }
-      .bg-deep-black {
-        background-color: #0a0a0a;
-      }
-      .border-orange {
-        border-color: #ff5a00;
+        background: linear-gradient(135deg, var(--nx-orange) 0%, #ff8c00 100%);
       }
       .glass-card {
         background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 2rem;
       }
-      .hover-orange:hover {
-        background-color: #ff5a00;
-        color: #ffffff;
+      @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      @keyframes infinite-shine {
+        0% { transform: translateX(-150%) skewX(-25deg); }
+        20% { transform: translateX(250%) skewX(-25deg); }
+        100% { transform: translateX(250%) skewX(-25deg); }
+      }
+      @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 15px 2px rgba(255, 90, 0, 0.3); }
+        50% { box-shadow: 0 0 30px 8px rgba(255, 90, 0, 0.6); }
+      }
+      .animate-infinite-shine {
+        animation: infinite-shine 4s infinite ease-in-out;
+      }
+      .animate-pulse-glow {
+        animation: pulse-glow 3s infinite ease-in-out;
       }
       ::selection {
-        background: #ff5a00;
+        background: var(--nx-orange);
         color: #ffffff;
+      }
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      /* Hide scrollbar for IE, Edge and Firefox */
+      body {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
       }
     </style>
   <script type="importmap">
@@ -52,14 +72,16 @@
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "react/": "https://esm.sh/react@^19.2.3/",
     "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
     "vite": "https://esm.sh/vite@^7.3.0",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
-    "framer-motion": "https://esm.sh/framer-motion@^12.23.26"
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
 }
 </script>
 </head>
   <body>
     <div id="root"></div>
+    <!-- Script de entrada vital para o Vite e Vercel -->
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
