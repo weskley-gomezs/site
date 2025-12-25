@@ -2,15 +2,16 @@
 import React from 'react';
 import { Button } from './Button';
 import { ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const Hero: React.FC = () => {
   const whatsappUrl = "https://wa.me/5561981535040?text=Olá,%20vim%20pelo%20site%20da%20NX%20Company%20e%20gostaria%20de%20validar%20meu%20projeto.";
-  const founderPhoto = "https://i.imgur.com/GikBazQ.png";
+  const heroImageUrl = "https://i.imgur.com/YY9xb6W.jpeg";
 
   return (
     <section className="relative pt-40 pb-20 md:pt-64 md:pb-40 overflow-hidden bg-[#0a0a0a]">
-      {/* Elementos de Background Globais */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-[#ff5a00]/5 blur-[120px] -z-10 rounded-full translate-x-1/4"></div>
+      {/* Elementos de Background Globais - Removido o glow laranja forte */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-white/[0.02] blur-[120px] -z-10 rounded-full translate-x-1/4"></div>
       
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -41,61 +42,53 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Coluna Direita: Foto do Fundador com Artes Brancas no Background */}
+          {/* Coluna Direita: Imagem e Elementos Tech */}
           <div className="hidden lg:flex justify-end items-center relative">
-            <div className="relative w-full max-w-[550px] aspect-[4/5] flex items-end">
+            <div className="relative w-full max-w-[600px] aspect-square flex items-center justify-center">
               
-              {/* --- ARTES BRANCAS NO BACKGROUND (ATRAS DA FOTO) --- */}
+              {/* Elementos Técnicos / Grid de fundo */}
               <div className="absolute inset-0 -z-10 overflow-visible pointer-events-none">
-                {/* Círculo Técnico */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] border border-white/[0.03] rounded-full"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] border border-white/[0.05] rounded-full"></div>
+                <motion.div 
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] border border-white/[0.05] rounded-full border-dashed"
+                />
                 
-                {/* Linhas Arquitetônicas / Grid */}
+                {/* Grid Visual */}
                 <div className="absolute top-0 right-0 w-full h-full">
                    <svg width="100%" height="100%" className="opacity-10">
                     <defs>
-                      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <pattern id="grid-hero" width="40" height="40" patternUnits="userSpaceOnUse">
                         <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.5"/>
                       </pattern>
                     </defs>
-                    <rect width="100%" height="100%" fill="url(#grid)" />
+                    <rect width="100%" height="100%" fill="url(#grid-hero)" />
                   </svg>
                 </div>
-
-                {/* Linhas Diagonais Tech */}
-                <div className="absolute -top-10 -right-20 w-64 h-[1px] bg-gradient-to-l from-white/20 to-transparent rotate-45"></div>
-                <div className="absolute -bottom-10 -left-20 w-96 h-[1px] bg-gradient-to-r from-white/10 to-transparent -rotate-12"></div>
-                
-                {/* Pontos de Interseção (Nodes) */}
-                <div className="absolute top-[10%] left-[5%] w-1 h-1 bg-white/40 rounded-full shadow-[0_0_10px_white]"></div>
-                <div className="absolute top-[40%] right-[-5%] w-1 h-1 bg-white/20 rounded-full"></div>
-                <div className="absolute bottom-[20%] left-[-10%] w-1.5 h-1.5 bg-white/30 rounded-full"></div>
               </div>
-              {/* -------------------------------------------------- */}
 
-              {/* Container da Foto */}
-              <div className="relative w-full h-full overflow-hidden">
+              {/* --- IMAGEM PRINCIPAL --- */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="relative z-10 w-full h-full flex items-center justify-center overflow-hidden rounded-[2rem] border border-white/10"
+              >
+                {/* Efeito de Sombra sutil atrás da imagem */}
+                <div className="absolute w-[80%] h-[80%] bg-white/[0.03] blur-[100px] rounded-full"></div>
+                
                 <img 
-                  src={founderPhoto} 
-                  alt="Founder NX Company" 
-                  className="w-full h-full object-cover object-center relative z-10"
+                  src={heroImageUrl} 
+                  alt="NX Company Founder" 
+                  className="relative z-20 w-full h-full object-cover select-none pointer-events-none"
                 />
                 
-                {/* Efeito de Fumaça (Smoke) */}
-                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent z-20 pointer-events-none"></div>
-                
-                {/* Texto de Identificação Sutil na Fumaça */}
-                <div className="absolute bottom-12 left-0 z-30">
-                  <div className="flex flex-col">
-                    <span className="text-white font-display font-black text-3xl uppercase tracking-tighter leading-none">DIRETORIA ESTRATÉGICA</span>
-                    <span className="text-[#ff5a00] text-sm font-bold tracking-[0.4em] uppercase mt-2">NX Company Specialist</span>
-                  </div>
-                </div>
-              </div>
+                {/* Overlay para mesclar a imagem com o ambiente escuro */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent z-25"></div>
+              </motion.div>
 
-              {/* Badge de Status Online */}
-              <div className="absolute top-10 right-0 bg-black/60 border border-white/10 px-5 py-2.5 rounded-full flex items-center gap-3 backdrop-blur-md z-30">
+              {/* Status Online Badge */}
+              <div className="absolute top-10 right-0 bg-black/60 border border-white/10 px-5 py-2.5 rounded-full flex items-center gap-3 backdrop-blur-md z-30 shadow-2xl">
                 <div className="relative flex">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500"></span>
@@ -105,6 +98,31 @@ export const Hero: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* --- FUMAÇA PRETA EM BAIXO --- */}
+      <div className="absolute bottom-0 left-0 w-full h-64 pointer-events-none z-20">
+        {/* Camada principal de fumaça (gradiente denso) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+        
+        {/* Partículas de fumaça animadas para realismo */}
+        <motion.div 
+          animate={{ 
+            x: [-20, 20, -20],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -bottom-20 left-1/4 w-[600px] h-[300px] bg-black blur-[100px] rounded-full"
+        />
+        <motion.div 
+          animate={{ 
+            x: [30, -30, 30],
+            opacity: [0.2, 0.5, 0.2]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute -bottom-20 right-1/4 w-[500px] h-[250px] bg-black blur-[120px] rounded-full"
+        />
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-black"></div>
       </div>
     </section>
   );
