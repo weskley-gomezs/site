@@ -49,6 +49,12 @@ export const Showcase: React.FC = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           <Mockup 
+            imageUrl="https://i.imgur.com/GPLB9Op.png"
+            title="Clínica de Estética de Luxo"
+            tag="High Performance / Aesthetics"
+            link="https://estetica-2-0.vercel.app"
+          />
+          <Mockup 
             imageUrl="https://i.imgur.com/amn0xlY.png"
             title="Clínica de Estética Premium"
             tag="Landing Page / Estética"
