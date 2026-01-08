@@ -6,6 +6,9 @@ interface Point {
   x: number;
   y: number;
   z: number;
+  originX: number;
+  originY: number;
+  originZ: number;
   px: number;
   py: number;
 }
@@ -16,7 +19,7 @@ export const ThreeDCore: React.FC = () => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   
   // Mouse and Animation refs
-  const mousePos = useRef({ x: 0, y: 0 });
+  const mousePos = useRef({ x: 0.5, y: 0.5 }); // Normalized 0-1
   const rotation = useRef({ x: 0, y: 0 });
   const currentVelocity = useRef({ x: 0.001, y: 0.002 });
   const ambientRotation = { x: 0.0005, y: 0.0015 };
@@ -24,14 +27,14 @@ export const ThreeDCore: React.FC = () => {
   // Motion Values for Parallax Tilt
   const x = useMotionValue(0.5);
   const y = useMotionValue(0.5);
-  const tiltX = useSpring(useTransform(y, [0, 1], [10, -10]), { stiffness: 100, damping: 30 });
-  const tiltY = useSpring(useTransform(x, [0, 1], [-10, 10]), { stiffness: 100, damping: 30 });
+  const tiltX = useSpring(useTransform(y, [0, 1], [12, -12]), { stiffness: 120, damping: 35 });
+  const tiltY = useSpring(useTransform(x, [0, 1], [-12, 12]), { stiffness: 120, damping: 35 });
 
   // Scroll Effects
   const { scrollYProgress } = useScroll();
-  const scale = useTransform(scrollYProgress, [0, 0.3], [1, 1.3]);
+  const scale = useTransform(scrollYProgress, [0, 0.3], [1, 1.4]);
   const opacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
-  const scrollRotationBoost = useTransform(scrollYProgress, [0, 1], [1, 5]);
+  const scrollRotationBoost = useTransform(scrollYProgress, [0, 1], [1, 6]);
   const springScale = useSpring(scale, { stiffness: 100, damping: 30 });
 
   useEffect(() => {
@@ -53,10 +56,7 @@ export const ThreeDCore: React.FC = () => {
       x.set(normX);
       y.set(normY);
 
-      mousePos.current = {
-        x: (normX - 0.5) * 0.02,
-        y: (normY - 0.5) * 0.02,
-      };
+      mousePos.current = { x: normX, y: normY };
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -79,19 +79,20 @@ export const ThreeDCore: React.FC = () => {
     ctx.scale(dpr, dpr);
 
     const points: Point[] = [];
-    const numPoints = window.innerWidth < 768 ? 100 : 400;
-    const radius = Math.min(dimensions.width, dimensions.height) * 0.4;
+    const numPoints = window.innerWidth < 768 ? 120 : 450;
+    const radius = Math.min(dimensions.width, dimensions.height) * 0.38;
 
     // Fibonacci Sphere Distribution
     for (let i = 0; i < numPoints; i++) {
       const phi = Math.acos(-1 + (2 * i) / numPoints);
       const theta = Math.sqrt(numPoints * Math.PI) * phi;
+      const rx = radius * Math.cos(theta) * Math.sin(phi);
+      const ry = radius * Math.sin(theta) * Math.sin(phi);
+      const rz = radius * Math.cos(phi);
       points.push({
-        x: radius * Math.cos(theta) * Math.sin(phi),
-        y: radius * Math.sin(theta) * Math.sin(phi),
-        z: radius * Math.cos(phi),
-        px: 0,
-        py: 0
+        x: rx, y: ry, z: rz,
+        originX: rx, originY: ry, originZ: rz,
+        px: 0, py: 0
       });
     }
 
@@ -100,10 +101,13 @@ export const ThreeDCore: React.FC = () => {
     const render = () => {
       ctx.clearRect(0, 0, dimensions.width, dimensions.height);
       
-      // Calculate rotation speed with scroll boost
       const boost = scrollRotationBoost.get();
-      currentVelocity.current.x += (mousePos.current.y + ambientRotation.x * boost - currentVelocity.current.x) * 0.05;
-      currentVelocity.current.y += (mousePos.current.x + ambientRotation.y * boost - currentVelocity.current.y) * 0.05;
+      // Mouse interaction influence on rotation speed
+      const targetVelX = (mousePos.current.y - 0.5) * 0.03 + ambientRotation.x * boost;
+      const targetVelY = (mousePos.current.x - 0.5) * 0.03 + ambientRotation.y * boost;
+      
+      currentVelocity.current.x += (targetVelX - currentVelocity.current.x) * 0.05;
+      currentVelocity.current.y += (targetVelY - currentVelocity.current.y) * 0.05;
       
       rotation.current.x += currentVelocity.current.x;
       rotation.current.y += currentVelocity.current.y;
@@ -117,34 +121,50 @@ export const ThreeDCore: React.FC = () => {
       const centerY = dimensions.height / 2;
       const focalLength = 800;
 
-      // Projection
+      // Mouse position in local canvas coords for gravity effect
+      const mx = mousePos.current.x * dimensions.width;
+      const my = mousePos.current.y * dimensions.height;
+
+      // Projection with slight dynamic drift
       const projectedPoints = points.map(p => {
-        let y1 = p.y * cosX - p.z * sinX;
-        let z1 = p.y * sinX + p.z * cosX;
-        let x2 = p.x * cosY + z1 * sinY;
-        let z2 = -p.x * sinY + z1 * cosY;
+        // Base rotation
+        let y1 = p.originY * cosX - p.originZ * sinX;
+        let z1 = p.originY * sinX + p.originZ * cosX;
+        let x2 = p.originX * cosY + z1 * sinY;
+        let z2 = -p.originX * sinY + z1 * cosY;
 
         const s = focalLength / (focalLength + z2 + radius);
+        const px = centerX + x2 * s;
+        const py = centerY + y1 * s;
+
+        // Gravity/Magnetic drift towards mouse
+        const dx = mx - px;
+        const dy = my - py;
+        const d = Math.hypot(dx, dy);
+        const strength = Math.max(0, (200 - d) / 200) * 8;
+        
         return {
-          x: centerX + x2 * s,
-          y: centerY + y1 * s,
+          x: px + (dx / (d + 1)) * strength,
+          y: py + (dy / (d + 1)) * strength,
           z: z2,
-          scale: s
+          scale: s,
+          distToMouse: d
         };
       });
 
-      // Connections (Dynamic Neural Web)
+      // Connections (Neural Web)
       ctx.beginPath();
       ctx.strokeStyle = 'rgba(255, 90, 0, 0.04)';
       ctx.lineWidth = 0.3;
       
-      const maxDist = window.innerWidth < 768 ? 40 : 50;
+      const maxDist = window.innerWidth < 768 ? 35 : 55;
       for (let i = 0; i < projectedPoints.length; i++) {
         const p1 = projectedPoints[i];
-        if (p1.z > radius * 0.3) continue;
+        if (p1.z > radius * 0.4) continue;
 
         let connections = 0;
-        for (let j = i + 1; j < projectedPoints.length && connections < 2; j++) {
+        const maxConn = window.innerWidth < 768 ? 1 : 2;
+        for (let j = i + 1; j < projectedPoints.length && connections < maxConn; j++) {
           const p2 = projectedPoints[j];
           const dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
           if (dist < maxDist) {
@@ -156,31 +176,26 @@ export const ThreeDCore: React.FC = () => {
       }
       ctx.stroke();
 
-      // Points & Interactive Glow
+      // Points with Interactive Bloom
       projectedPoints.forEach((p) => {
-        const size = Math.max(0.4, p.scale * 2);
+        const mouseGlow = Math.max(0, 1 - p.distToMouse / 120);
+        const size = Math.max(0.4, p.scale * (1.8 + mouseGlow * 1.5));
         const depthFactor = (radius + p.z) / (2 * radius);
         
-        // Mouse interaction glow logic
-        const mx = x.get() * dimensions.width;
-        const my = y.get() * dimensions.height;
-        const distToMouse = Math.hypot(p.x - mx, p.y - my);
-        const mouseGlow = Math.max(0, 1 - distToMouse / 150);
-
-        const alpha = Math.max(0.05, depthFactor * 0.7 + mouseGlow * 0.3);
+        const alpha = Math.max(0.04, depthFactor * 0.6 + mouseGlow * 0.4);
         
         ctx.fillStyle = `rgba(255, 90, 0, ${alpha})`;
         
-        if (p.z < -radius * 0.6 || mouseGlow > 0.5) {
-           ctx.shadowBlur = 10 * mouseGlow + 5;
-           ctx.shadowColor = 'rgba(255, 90, 0, 0.4)';
-           ctx.fillStyle = `rgba(255, ${150 + mouseGlow * 105}, ${mouseGlow * 255}, ${alpha + 0.1})`;
+        if (p.z < -radius * 0.7 || mouseGlow > 0.4) {
+           ctx.shadowBlur = 15 * mouseGlow + 4;
+           ctx.shadowColor = 'rgba(255, 90, 0, 0.5)';
+           ctx.fillStyle = `rgba(255, ${160 + mouseGlow * 95}, ${100 + mouseGlow * 155}, ${alpha + 0.15})`;
         } else {
            ctx.shadowBlur = 0;
         }
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, size + mouseGlow * 1.5, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
         ctx.fill();
       });
 
@@ -189,7 +204,7 @@ export const ThreeDCore: React.FC = () => {
 
     render();
     return () => cancelAnimationFrame(animationFrame);
-  }, [dimensions, scrollRotationBoost, x, y]);
+  }, [dimensions, scrollRotationBoost]);
 
   return (
     <motion.div 
@@ -206,19 +221,19 @@ export const ThreeDCore: React.FC = () => {
       <canvas 
         ref={canvasRef} 
         className="w-full h-full"
-        style={{ filter: 'drop-shadow(0 0 40px rgba(255, 90, 0, 0.1))' }}
+        style={{ filter: 'drop-shadow(0 0 50px rgba(255, 90, 0, 0.12))' }}
       />
       
-      {/* Central Branding with Depth Pulse */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ transform: 'translateZ(50px)' }}>
+      {/* Dynamic NX Centerpiece */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ transform: 'translateZ(60px)' }}>
         <motion.div
           animate={{ 
-            opacity: [0.1, 0.4, 0.1],
-            scale: [1, 1.05, 1],
-            filter: ["blur(2px)", "blur(0px)", "blur(2px)"]
+            opacity: [0.1, 0.45, 0.1],
+            scale: [0.98, 1.02, 0.98],
+            filter: ["blur(3px) brightness(0.8)", "blur(0px) brightness(1.2)", "blur(3px) brightness(0.8)"]
           }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="text-8xl md:text-[14rem] font-black text-[#ff5a00]/5 font-display select-none tracking-tighter"
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+          className="text-9xl md:text-[16rem] font-black text-[#ff5a00]/5 font-display select-none tracking-tighter"
         >
           NX
         </motion.div>

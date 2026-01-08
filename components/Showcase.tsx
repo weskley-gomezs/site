@@ -21,7 +21,7 @@ const Mockup: React.FC<{ imageUrl: string; title: string; tag: string; link: str
            <h4 className="text-xl md:text-2xl font-bold font-display uppercase tracking-tight text-white leading-tight">{title}</h4>
         </div>
         <div className="bg-[#ff5a00] p-2 md:p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0 shadow-[0_0_20px_rgba(255,90,0,0.4)]">
-           <ExternalLink size={18} md:size={20} className="text-black" />
+           <ExternalLink size={20} className="text-black" />
         </div>
       </div>
     </div>

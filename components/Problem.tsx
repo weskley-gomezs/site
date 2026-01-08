@@ -35,22 +35,22 @@ export const Problem: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-12 lg:mt-0">
             <ProblemCard 
-              icon={<TrendingDown size={28} md:size={32} />}
+              icon={<TrendingDown size={32} />}
               title="Vazamento de Leads"
               text="Sites lentos e confusos fazem você perder 70% da sua audiência no primeiro segundo."
             />
             <ProblemCard 
-              icon={<Target size={28} md:size={32} />}
+              icon={<Target size={32} />}
               title="Tráfego Queimado"
               text="Investir em anúncios sem uma página de alta conversão é como tentar encher um balde furado."
             />
             <ProblemCard 
-              icon={<AlertCircle size={28} md:size={32} />}
+              icon={<AlertCircle size={32} />}
               title="Amadorismo Técnico"
               text="Plataformas genéricas que limitam sua escala e travam na hora do seu maior volume de vendas."
             />
             <ProblemCard 
-              icon={<Zap size={28} md:size={32} />}
+              icon={<Zap size={32} />}
               title="Silêncio Comercial"
               text="Sua empresa online mas o telefone não toca. Falta persuasão técnica e foco no cliente ideal."
             />

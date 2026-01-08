@@ -49,7 +49,7 @@ export const Services: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <ServiceCard 
             badge="Escalável"
-            icon={<Layout size={40} md:size={48} strokeWidth={1.5} />}
+            icon={<Layout size={48} strokeWidth={1.5} />}
             title="Máquinas de Vendas"
             items={[
               "Estrutura focada em fechar negócios",
@@ -61,7 +61,7 @@ export const Services: React.FC = () => {
           />
           <ServiceCard 
             badge="Elite Tech"
-            icon={<Rocket size={40} md:size={48} strokeWidth={1.5} />}
+            icon={<Rocket size={48} strokeWidth={1.5} />}
             title="Software como Ativo"
             items={[
               "Sistemas que trabalham sozinhos",
@@ -73,7 +73,7 @@ export const Services: React.FC = () => {
           />
           <ServiceCard 
             badge="Data Driven"
-            icon={<LineChart size={40} md:size={48} strokeWidth={1.5} />}
+            icon={<LineChart size={48} strokeWidth={1.5} />}
             title="Aceleração de Lucro"
             items={[
               "Tráfego com foco em ROI líquido",
