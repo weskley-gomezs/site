@@ -8,13 +8,46 @@ import { Services } from './components/Services';
 import { Showcase } from './components/Showcase';
 import { FAQ } from './components/FAQ';
 import { Footer } from './components/Footer';
-import { ArrowLeft, CheckCircle2, TrendingUp, Target, DollarSign } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { SuccessCases } from './components/SuccessCases';
+import { WhatsAppButton } from './components/WhatsAppButton';
+import { 
+  ArrowLeft, 
+  CheckCircle2, 
+  TrendingUp, 
+  Target, 
+  DollarSign, 
+  ShieldCheck, 
+  FileText, 
+  Cookie, 
+  Lock, 
+  Zap, 
+  Layers, 
+  BarChart3, 
+  Globe, 
+  Code2, 
+  Search
+} from 'lucide-react';
+import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 
 type Route = 'home' | 'metodo' | 'servicos' | 'portfolio' | 'faq' | 'privacidade' | 'termos' | 'cookies';
 
 function App() {
   const [currentRoute, setCurrentRoute] = useState<Route>('home');
+  
+  // Cursor Flashlight State
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 500, damping: 50 });
+  const springY = useSpring(mouseY, { stiffness: 500, damping: 50 });
+
+  useEffect(() => {
+    const updateMouse = (e: MouseEvent) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+    };
+    window.addEventListener("mousemove", updateMouse);
+    return () => window.removeEventListener("mousemove", updateMouse);
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -39,10 +72,13 @@ function App() {
           <h1 className="text-5xl md:text-7xl font-black font-display uppercase tracking-tighter mb-4">
             {title.split(' ').map((word, i) => i === title.split(' ').length - 1 ? <span key={i} className="text-[#ff5a00]">{word}</span> : word + ' ')}
           </h1>
-          {subtitle && <p className="text-xl text-gray-400 max-w-2xl font-light">{subtitle}</p>}
+          {subtitle && <p className="text-xl text-gray-400 max-w-2xl font-light italic">{subtitle}</p>}
         </header>
 
-        <div className="glass-card p-8 md:p-16 rounded-[3rem] border-white/5 bg-white/[0.02] shadow-2xl">
+        <div className="glass-card p-8 md:p-16 rounded-[3rem] border-white/5 bg-white/[0.02] shadow-2xl relative overflow-hidden">
+           <div className="absolute top-0 right-0 p-10 opacity-[0.03] pointer-events-none">
+              <Zap size={300} className="text-[#ff5a00]" />
+           </div>
           {children}
         </div>
       </div>
@@ -53,12 +89,9 @@ function App() {
     switch (currentRoute) {
       case 'home':
         return (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
             <Hero />
+            <SuccessCases />
             <Problem />
             <div id="positioning" className="py-20 bg-deep-black flex justify-center overflow-hidden border-y border-white/5">
               <div className="whitespace-nowrap flex animate-[scroll_60s_linear_infinite] gap-10">
@@ -77,91 +110,52 @@ function App() {
         );
       
       case 'metodo':
-        return (
-          <PageWrapper title="Engenharia de Lucro" subtitle="Como a NX Company transforma sua operação digital em uma máquina de faturamento.">
-            <div className="space-y-16">
-              <div className="max-w-4xl">
-                <p className="text-2xl text-white font-light leading-relaxed">
-                  Não entregamos apenas "sites". Entregamos <strong className="text-[#ff5a00] font-black">vantagem competitiva</strong>. Nosso método foi desenhado para remover cada barreira que impede o seu cliente de te pagar.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-12">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4 text-[#ff5a00]">
-                    <Target size={32} />
-                    <h3 className="text-2xl font-bold font-display uppercase">Eliminação de Fricção</h3>
-                  </div>
-                  <p className="text-gray-400 leading-relaxed text-lg font-light">
-                    Cada segundo que seu cliente espera para carregar uma página é dinheiro saindo do seu bolso. Criamos estruturas que funcionam com velocidade máxima para garantir que a decisão de compra seja tomada sem hesitação.
-                  </p>
-                  <ul className="space-y-3">
-                    {['Foco total na experiência do comprador', 'Velocidade que gera confiança imediata', 'Navegação intuitiva focada em vendas', 'Estrutura à prova de falhas'].map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-gray-500 text-sm font-bold uppercase tracking-wider">
-                        <CheckCircle2 size={16} className="text-[#ff5a00]" /> {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4 text-[#ff5a00]">
-                    <DollarSign size={32} />
-                    <h3 className="text-2xl font-bold font-display uppercase">Escala de ROI</h3>
-                  </div>
-                  <p className="text-gray-400 leading-relaxed text-lg font-light">
-                    Parar de investir em anúncios e começar a investir em resultados. Criamos um ecossistema onde cada centavo investido é rastreado para que você saiba exatamente o quanto está ganhando de volta.
-                  </p>
-                  <ul className="space-y-3">
-                    {['Atração de clientes qualificados', 'Maximização do lucro por venda', 'Redução do custo de novos clientes', 'Previsibilidade de faturamento mensal'].map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-gray-500 text-sm font-bold uppercase tracking-wider">
-                        <CheckCircle2 size={16} className="text-[#ff5a00]" /> {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="p-10 bg-[#ff5a00]/5 border border-[#ff5a00]/20 rounded-[2.5rem] relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#ff5a00]/10 blur-3xl -z-10 group-hover:bg-[#ff5a00]/20 transition-all"></div>
-                <div className="flex flex-col md:flex-row gap-8 items-center">
-                  <div className="bg-[#ff5a00] p-6 rounded-3xl shrink-0 shadow-[0_0_30px_rgba(255,90,0,0.3)]">
-                    <TrendingUp size={48} className="text-black" />
-                  </div>
-                  <div>
-                    <h3 className="text-3xl font-black font-display uppercase mb-4">O Futuro do seu Negócio</h3>
-                    <p className="text-gray-300 text-lg leading-relaxed font-light">
-                      Tratamos seu site como um ativo financeiro. Ele deve valorizar sua marca e facilitar sua operação. Construímos soluções que permitem que você escale seu faturamento sem precisar escalar sua equipe na mesma proporção.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </PageWrapper>
-        );
-
+        return <PageWrapper title="Engenharia de Lucro" subtitle="O framework técnico que remove a sorte da equação.">
+          <div className="h-40 flex items-center justify-center text-gray-500 italic">Estratégia forjada em dados e performance.</div>
+        </PageWrapper>;
+      case 'servicos':
+        return <PageWrapper title="Nossos Motores" subtitle="Soluções sob medida para quem não aceita resultados médios.">
+          <div className="h-40 flex items-center justify-center text-gray-500 italic">Explore nossa gama de serviços de elite.</div>
+        </PageWrapper>;
+      case 'portfolio':
+        return <PageWrapper title="Showcase de Ativos" subtitle="Explore a qualidade técnica e visual da NX.">
+          <div className="h-40 flex items-center justify-center text-gray-500 italic">Clique nos projetos para visualizar.</div>
+        </PageWrapper>;
+      case 'faq':
+        return <PageWrapper title="Dúvidas Reais" subtitle="O que você precisa saber antes de contratarmos sua vitória.">
+          <div className="h-40 flex items-center justify-center text-gray-500 italic">Seção FAQ ativa.</div>
+        </PageWrapper>;
+      case 'privacidade':
+      case 'termos':
+      case 'cookies':
+        return <PageWrapper title={currentRoute} subtitle="Informações legais NX.">
+          <div className="h-40 flex items-center justify-center text-gray-500 italic">Documentação legal.</div>
+        </PageWrapper>;
       default:
-        return (
-          <PageWrapper title={currentRoute.charAt(0).toUpperCase() + currentRoute.slice(1)} subtitle="Conteúdo em desenvolvimento estratégico.">
-             <div className="h-40 flex items-center justify-center text-gray-600 italic">
-                A seção de {currentRoute} está sendo otimizada para máxima conversão.
-             </div>
-          </PageWrapper>
-        );
+        return <PageWrapper title="NX Company" />;
     }
   };
 
   return (
-    <div className="bg-[#0a0a0a] min-h-screen text-white selection:bg-[#ff5a00] selection:text-white">
+    <div className="bg-[#0a0a0a] min-h-screen text-white selection:bg-[#ff5a00] selection:text-white relative overflow-x-hidden">
+      {/* Global Cursor Glow */}
+      <motion.div 
+        style={{ x: springX, y: springY, translateX: "-50%", translateY: "-50%" }}
+        className="fixed top-0 left-0 w-[600px] h-[600px] bg-[#ff5a00]/5 blur-[120px] rounded-full pointer-events-none z-0"
+      />
+
       <Header onNavigate={setCurrentRoute} />
-      <main>
+      <main className="relative z-10">
         <AnimatePresence mode="wait">
           {renderContent()}
         </AnimatePresence>
       </main>
       <Footer onNavigate={setCurrentRoute} />
+      <WhatsAppButton />
       
       <style>{`
+        .perspective-1000 { perspective: 1000px; }
+        .perspective-2000 { perspective: 2000px; }
         @keyframes scroll {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
@@ -171,15 +165,8 @@ function App() {
           20% { transform: translateX(250%) skewX(-25deg); }
           100% { transform: translateX(250%) skewX(-25deg); }
         }
-        @keyframes pulse-glow {
-          0%, 100% { box-shadow: 0 0 15px 2px rgba(255, 90, 0, 0.4); }
-          50% { box-shadow: 0 0 30px 8px rgba(255, 90, 0, 0.7); }
-        }
         .animate-infinite-shine {
           animation: infinite-shine 4s infinite ease-in-out;
-        }
-        .animate-pulse-glow {
-          animation: pulse-glow 3s infinite ease-in-out;
         }
         html {
           scroll-behavior: smooth;

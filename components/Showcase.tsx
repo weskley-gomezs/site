@@ -49,6 +49,12 @@ export const Showcase: React.FC = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           <Mockup 
+            imageUrl="https://i.imgur.com/aMoMRlq.png"
+            title="Colégio Reação"
+            tag="Site informativo com CTA de alta conversão"
+            link="https://colegioreacao.com"
+          />
+          <Mockup 
             imageUrl="https://i.imgur.com/GPLB9Op.png"
             title="Clínica de Estética de Luxo"
             tag="High Performance / Aesthetics"
