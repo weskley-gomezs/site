@@ -12,20 +12,10 @@ import { SuccessCases } from './components/SuccessCases';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { 
   ArrowLeft, 
-  CheckCircle2, 
-  TrendingUp, 
-  Target, 
-  DollarSign, 
-  ShieldCheck, 
-  FileText, 
-  Cookie, 
-  Lock, 
   Zap, 
-  Layers, 
+  ShieldCheck, 
   BarChart3, 
-  Globe, 
-  Code2, 
-  Search
+  Code2
 } from 'lucide-react';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 
@@ -47,7 +37,7 @@ function App() {
     };
     window.addEventListener("mousemove", updateMouse);
     return () => window.removeEventListener("mousemove", updateMouse);
-  }, []);
+  }, [mouseX, mouseY]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -110,29 +100,72 @@ function App() {
         );
       
       case 'metodo':
-        return <PageWrapper title="Engenharia de Lucro" subtitle="O framework técnico que remove a sorte da equação.">
-          <div className="h-40 flex items-center justify-center text-gray-500 italic">Estratégia forjada em dados e performance.</div>
-        </PageWrapper>;
+        return (
+          <PageWrapper title="Engenharia de Lucro" subtitle="O framework técnico que remove a sorte da equação.">
+            <div className="grid md:grid-cols-2 gap-12">
+              <div className="space-y-6">
+                <div className="flex gap-4 items-start">
+                  <div className="p-3 bg-[#ff5a00]/10 rounded-xl text-[#ff5a00]"><Code2 size={24} /></div>
+                  <div>
+                    <h4 className="text-white font-bold uppercase mb-2">Código de Alta Performance</h4>
+                    <p className="text-gray-400">Desenvolvemos com as tecnologias mais rápidas do mercado para garantir que seu site carregue em menos de 1 segundo.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4 items-start">
+                  <div className="p-3 bg-[#ff5a00]/10 rounded-xl text-[#ff5a00]"><BarChart3 size={24} /></div>
+                  <div>
+                    <h4 className="text-white font-bold uppercase mb-2">Decisões Baseadas em Dados</h4>
+                    <p className="text-gray-400">Cada botão e cada palavra no seu site é testado para maximizar a conversão de leads.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white/5 p-8 rounded-3xl border border-white/10 flex items-center justify-center">
+                <p className="text-center italic text-gray-500">Documentação do método em processo de atualização para V2.0...</p>
+              </div>
+            </div>
+          </PageWrapper>
+        );
       case 'servicos':
-        return <PageWrapper title="Nossos Motores" subtitle="Soluções sob medida para quem não aceita resultados médios.">
-          <div className="h-40 flex items-center justify-center text-gray-500 italic">Explore nossa gama de serviços de elite.</div>
-        </PageWrapper>;
+        return (
+          <PageWrapper title="Nossos Motores" subtitle="Soluções sob medida para quem não aceita resultados médios.">
+            <div className="h-40 flex items-center justify-center text-gray-500 italic">Explore nossa gama de serviços de elite. Detalhes em breve.</div>
+          </PageWrapper>
+        );
       case 'portfolio':
-        return <PageWrapper title="Showcase de Ativos" subtitle="Explore a qualidade técnica e visual da NX.">
-          <div className="h-40 flex items-center justify-center text-gray-500 italic">Clique nos projetos para visualizar.</div>
-        </PageWrapper>;
+        return (
+          <PageWrapper title="Showcase de Ativos" subtitle="Explore a qualidade técnica e visual da NX.">
+            <div className="h-40 flex items-center justify-center text-gray-500 italic">Clique nos projetos na Home para visualizar interativamente.</div>
+          </PageWrapper>
+        );
       case 'faq':
-        return <PageWrapper title="Dúvidas Reais" subtitle="O que você precisa saber antes de contratarmos sua vitória.">
-          <div className="h-40 flex items-center justify-center text-gray-500 italic">Seção FAQ ativa.</div>
-        </PageWrapper>;
+        return (
+          <PageWrapper title="Dúvidas Reais" subtitle="O que você precisa saber antes de contratarmos sua vitória.">
+            <div className="h-40 flex items-center justify-center text-gray-500 italic">Nossa central de ajuda está sendo expandida.</div>
+          </PageWrapper>
+        );
       case 'privacidade':
       case 'termos':
       case 'cookies':
-        return <PageWrapper title={currentRoute} subtitle="Informações legais NX.">
-          <div className="h-40 flex items-center justify-center text-gray-500 italic">Documentação legal.</div>
-        </PageWrapper>;
+        return (
+          <PageWrapper title={currentRoute.charAt(0).toUpperCase() + currentRoute.slice(1)} subtitle="Informações legais NX.">
+            <div className="space-y-6">
+              <div className="flex gap-3 items-center text-[#ff5a00] mb-4">
+                <ShieldCheck size={24} />
+                <span className="font-bold uppercase tracking-widest">Compromisso com a Transparência</span>
+              </div>
+              <p className="text-gray-400 leading-relaxed">
+                A NX Company preza pela segurança dos seus dados. Esta seção contém as diretrizes de uso de nossa plataforma e o tratamento de informações de acordo com a LGPD.
+              </p>
+              <div className="h-20 bg-white/5 rounded-xl border border-white/5 animate-pulse"></div>
+            </div>
+          </PageWrapper>
+        );
       default:
-        return <PageWrapper title="NX Company" />;
+        return (
+          <PageWrapper title="NX Company">
+            <div className="h-40 flex items-center justify-center text-gray-500 italic">Página não encontrada ou em construção.</div>
+          </PageWrapper>
+        );
     }
   };
 

@@ -9,57 +9,61 @@ export const Hero: React.FC = () => {
   const whatsappUrl = "https://wa.me/5561981535040?text=Olá! Vim pelo site e gostaria de um diagnóstico estratégico para o meu projeto.";
 
   return (
-    <section className="relative pt-40 pb-20 md:pt-64 md:pb-60 overflow-visible bg-[#0a0a0a]">
+    <section className="relative pt-32 pb-16 md:pt-48 md:pb-40 overflow-hidden bg-[#0a0a0a]">
       <div className="container mx-auto px-6 relative z-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Coluna Esquerda: Conteúdo */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-4">
+          
+          {/* Text Content */}
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center md:text-left z-30"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full md:w-1/2 text-center md:text-left z-30 order-2 md:order-1"
           >
-            <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/10 rounded-full bg-white/5 mb-8">
+            <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/10 rounded-full bg-white/5 mb-6 md:mb-8 mx-auto md:mx-0">
               <span className="w-2 h-2 bg-[#ff5a00] rounded-full animate-pulse"></span>
-              <span className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400">Ativos Digitais Autônomos</span>
+              <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-gray-400">Ativos Digitais Autônomos</span>
             </div>
             
-            <h1 className="text-6xl md:text-8xl font-black font-display leading-[0.9] tracking-tighter mb-8 uppercase">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black font-display leading-[1.1] md:leading-[0.9] tracking-tighter mb-6 md:mb-8 uppercase">
               NX Company<br />
               <span className="text-[#ff5a00]">High Speed</span><br />
               Performance.
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-400 font-light max-w-2xl mb-12 leading-relaxed mx-auto md:mx-0">
-              Engenharia de software e design de conversão para empresas que operam em escala global.
+            <p className="text-base md:text-lg lg:text-xl text-gray-400 font-light max-w-xl mb-8 md:mb-12 leading-relaxed mx-auto md:mx-0">
+              Engenharia de software e design de conversão para empresas que operam em escala global através de ativos digitais de alta performance.
             </p>
             
-            <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
-              <Button variant="primary" onClick={() => window.open(whatsappUrl, '_blank')}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <Button variant="primary" className="w-full sm:w-auto" onClick={() => window.open(whatsappUrl, '_blank')}>
                 Validar meu projeto
                 <ChevronRight size={20} />
               </Button>
-              <Button variant="outline" onClick={() => document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })}>
+              <Button variant="outline" className="w-full sm:w-auto" onClick={() => document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })}>
                 Showcase
               </Button>
             </div>
           </motion.div>
 
-          {/* Coluna Direita: O Globo NX Cinético */}
+          {/* Visual Content - Globo Canvas 3D */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            className="h-[500px] md:h-[600px] flex items-center justify-center relative pointer-events-none"
+            transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+            className="w-full md:w-1/2 h-[300px] sm:h-[400px] md:h-[600px] flex items-center justify-center relative pointer-events-none order-1 md:order-2"
           >
-            <ThreeDCore />
+            <div className="w-full h-full relative flex items-center justify-center overflow-visible">
+              <ThreeDCore />
+            </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Camada de Profundidade */}
-      <div className="absolute inset-0 -z-10 pointer-events-none opacity-20">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]" />
+      {/* Profundidade de Fundo */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,90,0,0.05),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
     </section>
   );
