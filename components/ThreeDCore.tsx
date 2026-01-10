@@ -224,7 +224,7 @@ export const ThreeDCore: React.FC = () => {
         style={{ filter: 'drop-shadow(0 0 50px rgba(255, 90, 0, 0.12))' }}
       />
       
-      {/* Dynamic NX Centerpiece */}
+      {/* Dynamic WG Centerpiece - Weskley Gomes */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ transform: 'translateZ(60px)' }}>
         <motion.div
           animate={{ 
@@ -235,7 +235,7 @@ export const ThreeDCore: React.FC = () => {
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
           className="text-9xl md:text-[16rem] font-black text-[#ff5a00]/5 font-display select-none tracking-tighter"
         >
-          NX
+          WG
         </motion.div>
       </div>
     </motion.div>

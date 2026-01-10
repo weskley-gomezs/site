@@ -9,11 +9,10 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-  const whatsappUrl = "https://wa.me/5561981535040?text=Olá,%20vim%20pelo%20site%20da%20NX%20Company%20e%20gostaria%20de%20iniciar%20uma%20conversa%20estratégica.";
-  const logoUrl = "https://i.imgur.com/etRVFsd.png";
+  const whatsappUrl = "https://wa.me/5561981535040?text=Olá,%20vim%20pelo%20site%20Weskley%20Gomes%20e%20gostaria%20de%20iniciar%20uma%20conversa%20estratégica%20para%20minha%20escola.";
 
   const socials = {
-    instagram: "https://www.instagram.com/companynx/"
+    instagram: "https://www.instagram.com/weskley_gomezs/"
   };
 
   const handleNav = (route: any) => (e: React.MouseEvent) => {
@@ -29,19 +28,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto text-center mb-24">
           <h2 className="text-5xl md:text-8xl font-black font-display uppercase tracking-tighter leading-none mb-8">
-            Pronto para parar de <br />
-            <span className="text-[#ff5a00]">improvisar</span> no digital?
+            Sua escola pronta para <br />
+            <span className="text-[#ff5a00]">escala máxima?</span>
           </h2>
           <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-            Diagnóstico inicial sem compromisso. Uma conversa estratégica para validar seu projeto e traçar o plano de escala.
+            Diagnóstico inicial sem compromisso. Uma conversa estratégica diretamente com Weskley Gomes para validar sua estrutura.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button variant="primary" className="px-12 py-6 text-xl" onClick={() => window.open(whatsappUrl, '_blank')}>
-              Vamos conversar
+              Quero alunos novos
             </Button>
           </div>
           <p className="mt-8 text-sm font-bold tracking-[0.2em] text-gray-500 uppercase">
-            Vagas limitadas para novos projetos este mês.
+            Agenda aberta para consultorias de alta performance.
           </p>
         </div>
 
@@ -49,14 +48,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-2 mb-6">
               <a href="#" onClick={handleNav('home')} className="hover:opacity-80 transition-opacity">
-                <img src={logoUrl} alt="NX Company Logo" className="h-10 w-auto" />
+                <span className="font-display font-black uppercase tracking-tighter text-2xl">
+                  WESKLEY <span className="text-[#ff5a00]">GOMES</span>
+                </span>
               </a>
             </div>
             <p className="text-gray-500 max-w-xs mb-8">
-              Transformando ativos digitais em vantagem competitiva e lucro real. Design premium, tecnologia SaaS e performance de dados.
+              Engenharia de captação e design de marca focado em instituições de ensino de elite. Transformando autoridade em faturamento.
             </p>
             <div className="flex gap-4">
               <a href={socials.instagram} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 hover:bg-[#ff5a00] text-gray-400 hover:text-white transition-all rounded-full">
+                <span className="sr-only">Instagram</span>
                 <Instagram size={24} />
               </a>
             </div>
@@ -65,17 +67,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div>
             <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">Explore</h4>
             <ul className="space-y-4 text-gray-500 font-medium">
-              <li><button onClick={handleNav('metodo')} className="hover:text-white transition-colors text-left">Método NX</button></li>
-              <li><button onClick={handleNav('servicos')} className="hover:text-white transition-colors text-left">Serviços</button></li>
-              <li><button onClick={handleNav('portfolio')} className="hover:text-white transition-colors text-left">Portfólio</button></li>
-              <li><button onClick={handleNav('faq')} className="hover:text-white transition-colors text-left">Perguntas Frequentes</button></li>
+              <li><button onClick={handleNav('metodo')} className="hover:text-white transition-colors text-left">Método CAPTA</button></li>
+              <li><button onClick={handleNav('servicos')} className="hover:text-white transition-colors text-left">Nossas Soluções</button></li>
+              <li><button onClick={handleNav('portfolio')} className="hover:text-white transition-colors text-left">Cases Educacionais</button></li>
+              <li><button onClick={handleNav('faq')} className="hover:text-white transition-colors text-left">FAQ Estratégico</button></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">Legal</h4>
             <ul className="space-y-4 text-gray-500 font-medium">
-              <li><button onClick={handleNav('privacidade')} className="hover:text-white transition-colors text-left">Políticas de Privacidade</button></li>
+              <li><button onClick={handleNav('privacidade')} className="hover:text-white transition-colors text-left">Privacidade</button></li>
               <li><button onClick={handleNav('termos')} className="hover:text-white transition-colors text-left">Termos de Uso</button></li>
               <li><button onClick={handleNav('cookies')} className="hover:text-white transition-colors text-left">Cookies</button></li>
             </ul>
@@ -84,7 +86,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-600 text-sm">
-            © {new Date().getFullYear()} NX Company. Todos os direitos reservados. 
+            © {new Date().getFullYear()} Weskley Gomes. Todos os direitos reservados. 
           </p>
           <button 
             onClick={scrollToTop}

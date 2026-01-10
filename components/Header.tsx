@@ -10,8 +10,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const whatsappUrl = "https://wa.me/5561981535040?text=Olá,%20vim%20pelo%20site%20da%20NX%20Company%20e%20gostaria%20de%20falar%20com%20um%20especialista.";
-  const logoUrl = "https://i.imgur.com/etRVFsd.png";
+  const whatsappUrl = "https://wa.me/5561981535040?text=Olá,%20vim%20pelo%20site%20Weskley%20Gomes%20e%20gostaria%20de%20falar%20com%20um%20especialista.";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,14 +30,12 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/95 backdrop-blur-md py-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)]' : 'bg-transparent py-8'}`}>
       <div className="container mx-auto px-6 flex items-center justify-between">
         
-        {/* Logo - Tamanho reduzido e posicionado à esquerda */}
+        {/* Text Logo - Weskley Gomes */}
         <div className="flex items-center shrink-0">
           <a href="#" onClick={handleLogoClick} className="transition-transform duration-300 hover:scale-105 block">
-            <img 
-              src={logoUrl} 
-              alt="NX Company Logo" 
-              className={`transition-all duration-500 w-auto ${isScrolled ? 'h-10 md:h-12' : 'h-12 md:h-16'}`} 
-            />
+            <span className={`font-display font-black uppercase tracking-tighter transition-all duration-500 ${isScrolled ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl'}`}>
+              WESKLEY <span className="text-[#ff5a00]">GOMES</span>
+            </span>
           </a>
         </div>
 
@@ -51,7 +48,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
             className="relative overflow-hidden group border border-[#ff5a00] px-8 py-3 text-[10px] font-bold text-[#ff5a00] hover:bg-[#ff5a00] hover:text-white transition-all uppercase tracking-[0.2em] rounded-full inline-block shadow-[0_0_10px_rgba(255,90,0,0.2)] hover:shadow-[0_0_20px_rgba(255,90,0,0.5)]"
           >
             <span className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-[25deg] animate-infinite-shine pointer-events-none"></span>
-            Falar com Especialista
+            Falar com Estrategista
           </a>
         </div>
 
@@ -74,7 +71,9 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
             <X size={40} />
           </button>
           
-          <img src={logoUrl} alt="NX Company Logo" className="h-20 w-auto mb-20" />
+          <span className="font-display font-black uppercase tracking-tighter text-4xl mb-20">
+            WESKLEY <span className="text-[#ff5a00]">GOMES</span>
+          </span>
           
           <a 
             href={whatsappUrl} 
@@ -88,7 +87,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
           </a>
           
           <div className="mt-16 flex flex-col items-center gap-6">
-             <span className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.4em] opacity-50">High Performance Assets</span>
+             <span className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.4em] opacity-50">Conversion Engineer</span>
              <div className="flex gap-6">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#ff5a00] animate-pulse"></div>
                 <div className="w-1.5 h-1.5 rounded-full bg-[#ff5a00]/50 animate-pulse delay-150"></div>

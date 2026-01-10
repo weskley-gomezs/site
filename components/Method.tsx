@@ -14,7 +14,6 @@ const Step: React.FC<{ number: string; title: string; description: string }> = (
 export const Method: React.FC = () => {
   return (
     <section id="metodo" className="py-24 bg-deep-black relative overflow-hidden">
-      {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none">
         <svg width="100%" height="100%">
           <pattern id="pattern-hex" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
@@ -29,14 +28,14 @@ export const Method: React.FC = () => {
           <div className="md:w-1/3">
             <div className="sticky top-32">
               <h2 className="text-5xl md:text-7xl font-black font-display uppercase leading-none tracking-tighter mb-8">
-                NOSSO <span className="text-[#ff5a00]">MÉTODO</span>
+                MÉTODO <span className="text-[#ff5a00]">CAPTA</span>
               </h2>
               <p className="text-lg text-gray-500 mb-8 italic">
-                Como transformamos tecnologia em um ativo que gera lucro previsível para sua empresa.
+                Nossa engenharia exclusiva para transformar visitantes em alunos matriculados de forma previsível.
               </p>
               <div className="w-20 h-1 bg-[#ff5a00] mb-6"></div>
               <p className="text-sm text-gray-600 font-bold uppercase tracking-widest">
-                Estratégia focada em faturamento
+                Foco em Retorno sobre Matrícula
               </p>
             </div>
           </div>
@@ -45,23 +44,23 @@ export const Method: React.FC = () => {
             <div className="space-y-4">
               <Step 
                 number="01"
-                title="MAPEAMENTO DE LUCRO"
-                description="Identificamos exatamente onde sua empresa está perdendo dinheiro hoje no digital. Analisamos o comportamento do seu cliente e desenhamos o caminho mais curto entre o primeiro clique e a venda final."
+                title="DIAGNÓSTICO DE CAPTAÇÃO"
+                description="Analisamos o funil de matrículas atual da sua escola. Identificamos onde os pais estão abandonando o processo e mapeamos as principais objeções que impedem o fechamento do contrato."
               />
               <Step 
                 number="02"
-                title="ARQUITETURA DE VENDAS"
-                description="Construímos o seu ativo digital com foco total em persuasão. Criamos uma experiência tão fluida que o seu cliente não encontra barreiras para comprar, garantindo que você não perca vendas para a concorrência por lentidão ou confusão."
+                title="ESTRUTURA DE ALTA CONVERSÃO"
+                description="Implementamos landing pages e sites com carregamento ultra-rápido e copy persuasiva, desenhados especificamente para o público educacional, garantindo que o desejo de matrícula seja gerado no primeiro contato."
               />
               <Step 
                 number="03"
-                title="ESCALA DE FATURAMENTO"
-                description="Colocamos as pessoas certas dentro do seu ativo. Atraímos apenas leads qualificados com intenção real de compra, otimizando seu investimento em anúncios para que cada real gasto retorne em lucro direto para o seu caixa."
+                title="ECOSSISTEMA DE NUTRIÇÃO"
+                description="Automação de processos para que nenhum lead esfrie. Integramos CRM e fluxos de mensagens para garantir que sua equipe comercial receba contatos quentes e prontos para a visita guiada."
               />
               <Step 
                 number="04"
-                title="OTIMIZAÇÃO DE ROI"
-                description="O trabalho não para na entrega. Analisamos como as pessoas interagem com seu negócio e fazemos ajustes contínuos para aumentar seu ticket médio e diminuir seu custo de aquisição de clientes dia após dia."
+                title="CAMPANHAS DE ALTA PERFORMANCE"
+                description="Gestão de tráfego pago (Google e Meta Ads) focada em atrair famílias qualificadas dentro do raio geográfico da sua instituição, otimizando o CAC (Custo de Aquisição de Aluno)."
               />
             </div>
           </div>
