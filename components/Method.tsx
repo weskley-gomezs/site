@@ -28,14 +28,14 @@ export const Method: React.FC = () => {
           <div className="md:w-1/3">
             <div className="sticky top-32">
               <h2 className="text-5xl md:text-7xl font-black font-display uppercase leading-none tracking-tighter mb-8">
-                MÉTODO <span className="text-[#ff5a00]">CAPTA</span>
+                MÉTODO <span className="text-[#ff5a00]">SYSTEMIC</span>
               </h2>
               <p className="text-lg text-gray-500 mb-8 italic">
-                Nossa engenharia exclusiva para transformar visitantes em alunos matriculados de forma previsível.
+                Nossa engenharia para transformar processos manuais em ativos digitais de alta performance.
               </p>
               <div className="w-20 h-1 bg-[#ff5a00] mb-6"></div>
               <p className="text-sm text-gray-600 font-bold uppercase tracking-widest">
-                Foco em Retorno sobre Matrícula
+                Arquitetura de Sistemas & Escala
               </p>
             </div>
           </div>
@@ -44,23 +44,23 @@ export const Method: React.FC = () => {
             <div className="space-y-4">
               <Step 
                 number="01"
-                title="DIAGNÓSTICO DE CAPTAÇÃO"
-                description="Analisamos o funil de matrículas atual da sua escola. Identificamos onde os pais estão abandonando o processo e mapeamos as principais objeções que impedem o fechamento do contrato."
+                title="MAPEAMENTO DE FLUXO"
+                description="Analisamos cada etapa do seu negócio, desde a entrada do lead até o pós-venda. Identificamos gargalos manuais e pontos cegos na gestão de dados."
               />
               <Step 
                 number="02"
-                title="ESTRUTURA DE ALTA CONVERSÃO"
-                description="Implementamos landing pages e sites com carregamento ultra-rápido e copy persuasiva, desenhados especificamente para o público educacional, garantindo que o desejo de matrícula seja gerado no primeiro contato."
+                title="ARQUITETURA DE DADOS"
+                description="Desenhamos a estrutura do sistema (DB, API, UI) focada em escalabilidade. Criamos a espinha dorsal tecnológica que sustentará o seu crescimento sem fricção."
               />
               <Step 
                 number="03"
-                title="ECOSSISTEMA DE NUTRIÇÃO"
-                description="Automação de processos para que nenhum lead esfrie. Integramos CRM e fluxos de mensagens para garantir que sua equipe comercial receba contatos quentes e prontos para a visita guiada."
+                title="DESENVOLVIMENTO & AUTOMAÇÃO"
+                description="Implementamos as ferramentas de gestão e automação. Criamos dashboards que mostram o que realmente importa para a tomada de decisão executiva."
               />
               <Step 
                 number="04"
-                title="CAMPANHAS DE ALTA PERFORMANCE"
-                description="Gestão de tráfego pago (Google e Meta Ads) focada em atrair famílias qualificadas dentro do raio geográfico da sua instituição, otimizando o CAC (Custo de Aquisição de Aluno)."
+                title="OPERAÇÃO EM ESCALA"
+                description="Lançamento e monitoramento. Garantimos que o sistema opere em alta performance, suportando milhares de leads e transações com estabilidade total."
               />
             </div>
           </div>

@@ -9,7 +9,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-  const whatsappUrl = "https://wa.me/5561981535040?text=Olá,%20vim%20pelo%20site%20Weskley%20Gomes%20e%20gostaria%20de%20iniciar%20uma%20conversa%20estratégica%20para%20minha%20escola.";
+  const whatsappUrl = "https://wa.me/5561981535040?text=Olá,%20vim%20pelo%20site%20Weskley%20Gomes%20e%20gostaria%20de%20um%20diagnóstico%20estratégico%20de%20sistema%20para%20o%20meu%20negócio.";
 
   const socials = {
     instagram: "https://www.instagram.com/weskley_gomezs/"
@@ -28,19 +28,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto text-center mb-24">
           <h2 className="text-5xl md:text-8xl font-black font-display uppercase tracking-tighter leading-none mb-8">
-            Sua escola pronta para <br />
-            <span className="text-[#ff5a00]">escala máxima?</span>
+            Seu negócio pronto para <br />
+            <span className="text-[#ff5a00]">escala total?</span>
           </h2>
           <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-            Diagnóstico inicial sem compromisso. Uma conversa estratégica diretamente com Weskley Gomes para validar sua estrutura.
+            Diagnóstico de infraestrutura e gestão sem compromisso. Uma conversa técnica para identificar como automatizar seu crescimento.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button variant="primary" className="px-12 py-6 text-xl" onClick={() => window.open(whatsappUrl, '_blank')}>
-              Quero alunos novos
+              Validar meu Projeto
             </Button>
           </div>
           <p className="mt-8 text-sm font-bold tracking-[0.2em] text-gray-500 uppercase">
-            Agenda aberta para consultorias de alta performance.
+            Consultoria para sistemas robustos e alta gestão de leads.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </a>
             </div>
             <p className="text-gray-500 max-w-xs mb-8">
-              Engenharia de captação e design de marca focado em instituições de ensino de elite. Transformando autoridade em faturamento.
+              Engenharia de sistemas e design de software focado em negócios de elite. Transformando processos em faturamento automático.
             </p>
             <div className="flex gap-4">
               <a href={socials.instagram} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 hover:bg-[#ff5a00] text-gray-400 hover:text-white transition-all rounded-full">
@@ -65,12 +65,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
 
           <div>
-            <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">Explore</h4>
+            <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">Empresa</h4>
             <ul className="space-y-4 text-gray-500 font-medium">
-              <li><button onClick={handleNav('metodo')} className="hover:text-white transition-colors text-left">Método CAPTA</button></li>
-              <li><button onClick={handleNav('servicos')} className="hover:text-white transition-colors text-left">Nossas Soluções</button></li>
-              <li><button onClick={handleNav('portfolio')} className="hover:text-white transition-colors text-left">Cases Educacionais</button></li>
-              <li><button onClick={handleNav('faq')} className="hover:text-white transition-colors text-left">FAQ Estratégico</button></li>
+              <li><button onClick={handleNav('metodo')} className="hover:text-white transition-colors text-left">Método SYSTEMIC</button></li>
+              <li><button onClick={handleNav('servicos')} className="hover:text-white transition-colors text-left">Soluções Enterprise</button></li>
+              <li><button onClick={handleNav('portfolio')} className="hover:text-white transition-colors text-left">Showcase Técnico</button></li>
+              <li><button onClick={handleNav('faq')} className="hover:text-white transition-colors text-left">Suporte & FAQ</button></li>
             </ul>
           </div>
 

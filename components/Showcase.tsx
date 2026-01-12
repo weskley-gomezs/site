@@ -44,14 +44,14 @@ export const Showcase: React.FC<ShowcaseProps> = ({ onNavigate }) => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-8 mb-12 md:mb-16">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-6xl font-black font-display uppercase tracking-tighter mb-4">
-              PROJETO EM <span className="text-[#ff5a00]">DESTAQUE</span>
+              CASE DE <span className="text-[#ff5a00]">ENGENHARIA</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-400">
-              Engenharia de conversão aplicada em um ecossistema educacional de alta performance.
+              Visualização de um ecossistema completo: do site de alta conversão ao sistema de gestão interna (ERP).
             </p>
           </div>
           <div className="hidden md:block text-right">
-            <p className="text-sm font-bold tracking-widest text-[#ff5a00] uppercase mb-1">Success Case</p>
+            <p className="text-sm font-bold tracking-widest text-[#ff5a00] uppercase mb-1">Architecture Case</p>
             <div className="h-1 w-24 bg-[#ff5a00] ml-auto"></div>
           </div>
         </div>
@@ -59,15 +59,15 @@ export const Showcase: React.FC<ShowcaseProps> = ({ onNavigate }) => {
         <div className="max-w-5xl mx-auto">
           <Mockup 
             imageUrl="https://i.imgur.com/aMoMRlq.png"
-            title="Colégio Reação"
-            tag="Educacional / Performance"
+            title="Sistemas Colégio Reação"
+            tag="ERP / CRM / Performance"
             onClick={() => onNavigate('case-reacao')}
           />
         </div>
 
         <div className="mt-16 md:mt-20 text-center">
           <p className="text-gray-500 text-xs md:text-sm font-bold tracking-[0.2em] uppercase italic px-4">
-            Clique para visualizar como Weskley Gomes estruturou o funil do Colégio Reação para maximizar matrículas.
+            Clique para visualizar como Weskley Gomes construiu o sistema de gestão técnica e o motor de leads do Colégio Reação.
           </p>
         </div>
       </div>

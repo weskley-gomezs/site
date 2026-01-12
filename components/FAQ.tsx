@@ -36,19 +36,19 @@ export const FAQ: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <FAQItem 
             question="Funciona para negócios pequenos?"
-            answer="Sim. No entanto, focamos em negócios que já entendem o valor do digital e buscam escala. Se você está começando mas tem visão de longo prazo, a NX Company é o parceiro ideal para garantir que seu primeiro passo seja tecnicamente perfeito."
+            answer="Sim. No entanto, focamos em negócios que já entendem o valor do digital e buscam escala. Se você está começando mas tem visão de longo prazo, Weskley Gomes é o parceiro ideal para garantir que seu primeiro passo seja tecnicamente perfeito."
           />
           <FAQItem 
             question="Preciso investir muito para começar?"
-            answer="O investimento é proporcional ao objetivo. Ativos digitais de alta performance requerem tecnologia e estratégia sérias. Não somos a opção mais barata do mercado, mas somos o investimento com maior foco em retorno financeiro real."
+            answer="O investimento é proporcional ao objetivo. Ativos digitais de alta performance requerem tecnologia e estratégia sérias. Não sou a opção mais barata do mercado, mas sou o investimento com maior foco em retorno financeiro real através de sistemas robustos."
           />
           <FAQItem 
             question="Vocês entregam o código?"
-            answer="Sim. Transparência total. No caso de sites e SaaS, o código é seu. Não prendemos clientes através de plataformas proprietárias ou 'caixas-pretas' técnicas."
+            answer="Sim. Transparência total. No caso de sites e SaaS, o código é seu. Não prendo clientes através de plataformas proprietárias ou 'caixas-pretas' técnicas."
           />
           <FAQItem 
             question="Em quanto tempo vejo resultado?"
-            answer="Projetos de site e LP costumam levar entre 15 a 30 dias para implementação completa. Os resultados de tráfego começam a aparecer nas primeiras 48h de campanhas no ar, com otimização completa do funil ocorrendo nos primeiros 90 dias."
+            answer="Projetos de sistema e gestão de leads costumam levar entre 15 a 45 dias para implementação da primeira fase. Os resultados operacionais são imediatos após o deploy, com a otimização completa dos fluxos de leads ocorrendo nos primeiros 90 dias."
           />
         </div>
       </div>

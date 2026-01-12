@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { ThreeDCore } from './ThreeDCore';
 
 export const Hero: React.FC = () => {
-  const whatsappUrl = "https://wa.me/5561981535040?text=Olá! Vim pelo site Weskley Gomes e gostaria de um diagnóstico para aumentar as matrículas da minha escola.";
+  const whatsappUrl = "https://wa.me/5561981535040?text=Olá! Vi o seu trabalho com engenharia de sistemas e gostaria de um diagnóstico para o meu negócio.";
 
   return (
     <section className="relative pt-32 pb-16 md:pt-48 md:pb-40 overflow-hidden bg-[#0a0a0a]">
@@ -22,26 +22,26 @@ export const Hero: React.FC = () => {
           >
             <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/10 rounded-full bg-white/5 mb-6 md:mb-8 mx-auto md:mx-0">
               <span className="w-2 h-2 bg-[#ff5a00] rounded-full animate-pulse"></span>
-              <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-gray-400">Weskley Gomes • Estrategista de Conversão</span>
+              <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-gray-400">Arquiteto de Sistemas • Conversion Engineer</span>
             </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black font-display leading-[1.1] md:leading-[0.9] tracking-tighter mb-6 md:mb-8 uppercase">
-              Escolas com<br />
-              <span className="text-[#ff5a00]">Matrículas</span><br />
-              Lotadas.
+              Sistemas que<br />
+              <span className="text-[#ff5a00]">Governam</span><br />
+              o Crescimento.
             </h1>
             
             <p className="text-base md:text-lg lg:text-xl text-gray-400 font-light max-w-xl mb-8 md:mb-12 leading-relaxed mx-auto md:mx-0">
-              Minha engenharia constrói a estrutura técnica e estratégica para instituições de ensino que buscam escala real e eficiência na captação de novos alunos.
+              Desenvolvo a infraestrutura técnica (ERP/CRM) e a estratégia de captação necessária para negócios de elite operarem em escala máxima, com automação total de leads.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button variant="primary" className="w-full sm:w-auto" onClick={() => window.open(whatsappUrl, '_blank')}>
-                Lotar minha escola
+                Escalar meu negócio
                 <ChevronRight size={20} />
               </Button>
               <Button variant="outline" className="w-full sm:w-auto" onClick={() => document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })}>
-                Minhas Soluções
+                Soluções Enterprise
               </Button>
             </div>
           </motion.div>
