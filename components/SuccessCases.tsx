@@ -27,7 +27,7 @@ export const SuccessCases: React.FC<SuccessCasesProps> = ({ onNavigate }) => {
               Trusted Performance
             </p>
             <h3 className="text-2xl font-bold font-display uppercase tracking-tight text-white leading-tight">
-              Projetos que operam em <span className="text-[#ff5a00]">escala máxima</span>.
+              Projects operating at <span className="text-[#ff5a00]">maximum scale</span>.
             </h3>
           </div>
 
@@ -47,7 +47,7 @@ export const SuccessCases: React.FC<SuccessCasesProps> = ({ onNavigate }) => {
                 className="h-20 md:h-28 w-auto object-contain transition-all duration-500 group-hover:drop-shadow-[0_0_20px_rgba(255,90,0,0.2)]" 
               />
               <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 text-[8px] text-[#ff5a00] font-bold tracking-[0.4em] uppercase whitespace-nowrap">
-                Ver Case Completo ↗
+                View Case ↗
               </div>
             </motion.button>
 

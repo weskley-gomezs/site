@@ -12,41 +12,26 @@ import { SuccessCases } from './components/SuccessCases';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { 
   ArrowLeft, 
-  Zap, 
-  ShieldCheck, 
-  BarChart3, 
-  Code2,
-  GraduationCap,
-  ExternalLink,
-  Target,
-  MousePointer2,
   Cpu,
   ArrowRight,
   TrendingUp,
-  Globe,
-  Smartphone,
-  Settings,
   Users,
-  Wrench,
   Database,
-  Search,
   ClipboardList,
   Activity,
-  Layers,
-  Lock
+  MousePointer2
 } from 'lucide-react';
-import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 
 type Route = 'home' | 'metodo' | 'servicos' | 'portfolio' | 'faq' | 'privacidade' | 'termos' | 'cookies' | 'case-reacao';
 
-// Componente para Números que Animam
 const CountUp = ({ value, suffix = "" }: { value: string, suffix?: string }) => {
   return (
     <motion.span
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2 }}
-      className="text-4xl md:text-6xl font-black font-display text-[#ff5a00]"
+      className="text-5xl md:text-7xl font-black font-display text-[#ff5a00] tracking-tighter"
     >
       {value}{suffix}
     </motion.span>
@@ -61,8 +46,7 @@ function App() {
     offset: ["start start", "end end"]
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const rotateEffect = useTransform(scrollYProgress, [0, 0.5], [0, 5]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -76,32 +60,33 @@ function App() {
       exit={{ opacity: 0 }}
       className="min-h-screen pt-40 pb-20 bg-[#050505] relative overflow-hidden"
     >
-      {/* Elementos Imersivos de Fundo */}
+      {/* Background Architectural Grid */}
       <motion.div style={{ y: backgroundY }} className="absolute inset-0 pointer-events-none opacity-20">
-        <div className="absolute top-0 left-1/4 w-[1px] h-full bg-gradient-to-b from-transparent via-[#ff5a00]/50 to-transparent"></div>
-        <div className="absolute top-0 right-1/4 w-[1px] h-full bg-gradient-to-b from-transparent via-[#ff5a00]/50 to-transparent"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#ff5a000a_0%,transparent_70%)]"></div>
+        <div className="absolute top-0 left-1/4 w-[1px] h-full bg-gradient-to-b from-transparent via-[#ff5a00]/30 to-transparent"></div>
+        <div className="absolute top-0 right-1/4 w-[1px] h-full bg-gradient-to-b from-transparent via-[#ff5a00]/30 to-transparent"></div>
+        <div className="absolute top-1/4 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#ff5a0008_0%,transparent_70%)]"></div>
       </motion.div>
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.button 
           whileHover={{ x: -10 }}
           onClick={() => setCurrentRoute('home')}
-          className="flex items-center gap-3 text-[#ff5a00] font-bold uppercase tracking-[0.3em] text-[10px] mb-16 px-6 py-2 border border-[#ff5a00]/20 rounded-full bg-[#ff5a00]/5 backdrop-blur-md"
+          className="flex items-center gap-3 text-[#ff5a00] font-bold uppercase tracking-[0.4em] text-[10px] mb-16 px-8 py-3 border border-[#ff5a00]/30 rounded-full bg-[#ff5a00]/5 backdrop-blur-xl hover:bg-[#ff5a00]/10 transition-all"
         >
-          <ArrowLeft size={16} /> Voltar ao Nexo
+          <ArrowLeft size={16} /> Back
         </motion.button>
         
-        <header className="mb-24 relative">
+        <header className="mb-32 relative">
           <motion.div
             initial={{ width: 0 }}
-            animate={{ width: "100px" }}
-            className="h-1 bg-[#ff5a00] mb-8"
+            animate={{ width: "120px" }}
+            className="h-1.5 bg-[#ff5a00] mb-10"
           />
           <motion.h1 
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            className="text-6xl md:text-9xl font-black font-display uppercase tracking-tighter mb-6 leading-none"
+            className="text-6xl md:text-9xl font-black font-display uppercase tracking-tighter mb-8 leading-[0.9]"
           >
             {title.split(' ').map((word, i) => i === title.split(' ').length - 1 ? <span key={i} className="text-[#ff5a00] block md:inline">{word}</span> : word + ' ')}
           </motion.h1>
@@ -110,7 +95,7 @@ function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="text-xl text-gray-500 max-w-3xl font-light italic border-l-2 border-white/10 pl-8"
+              className="text-xl md:text-2xl text-gray-400 max-w-4xl font-light italic border-l-2 border-[#ff5a00]/30 pl-10 py-2"
             >
               {subtitle}
             </motion.p>
@@ -132,11 +117,11 @@ function App() {
             <Hero />
             <SuccessCases onNavigate={setCurrentRoute} />
             <Problem />
-            <div id="positioning" className="py-20 bg-deep-black flex justify-center overflow-hidden border-y border-white/5">
-              <div className="whitespace-nowrap flex animate-[scroll_60s_linear_infinite] gap-10">
+            <div id="positioning" className="py-24 bg-[#0a0a0a] flex justify-center overflow-hidden border-y border-white/5">
+              <div className="whitespace-nowrap flex animate-[scroll_50s_linear_infinite] gap-12">
                 {[...Array(10)].map((_, i) => (
-                  <span key={i} className="text-6xl md:text-8xl font-black font-display text-white/[0.03] uppercase italic tracking-tighter">
-                    Weskley Gomes • Matrículas em Escala • Captação de Alunos • Performance Digital • 
+                  <span key={i} className="text-7xl md:text-9xl font-black font-display text-white/[0.02] uppercase italic tracking-tighter">
+                    Weskley Gomes • Conversion Engineering • High Performance Sites • Conversion UX • Brand Strategy • 
                   </span>
                 ))}
               </div>
@@ -150,156 +135,110 @@ function App() {
       
       case 'case-reacao':
         return (
-          <CyberWrapper title="Case Colégio Reação" subtitle="A transição radical de um legado analógico para uma vanguarda digital imersiva.">
-            <div className="space-y-40">
+          <CyberWrapper title="Case Reação College" subtitle="The radical transition from an analog legacy to an immersive digital vanguard, unifying site and technical management.">
+            <div className="space-y-48">
               
-              {/* Seção 01: O Choque de Realidade (Antes e Depois) */}
+              {/* Section 01: Conversion Audit */}
               <section>
                 <motion.div 
                    initial={{ opacity: 0, y: 30 }}
                    whileInView={{ opacity: 1, y: 0 }}
-                   className="flex items-center gap-4 mb-20"
+                   className="flex items-center gap-6 mb-24"
                 >
-                  <Activity className="text-[#ff5a00]" />
-                  <h4 className="font-bold uppercase tracking-[0.5em] text-xs text-white/50">Módulo 01: Audit de Interface</h4>
+                  <Activity className="text-[#ff5a00] w-8 h-8" />
+                  <h4 className="font-bold uppercase tracking-[0.6em] text-sm text-gray-500">Module 01: Conversion Audit</h4>
                 </motion.div>
 
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
-                  {/* Card Antes */}
+                <div className="grid lg:grid-cols-2 gap-16 lg:gap-32">
                   <motion.div 
                     initial={{ x: -100, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     className="relative group"
                   >
-                    <div className="absolute -inset-1 bg-red-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <a 
-                      href="https://mecanografiacode.github.io/siteinstitucional/infantil.html" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="relative block rounded-[3rem] overflow-hidden border border-white/10 bg-black/40 shadow-2xl"
-                    >
-                      <div className="absolute top-8 left-8 z-30 flex items-center gap-3">
-                         <span className="w-3 h-3 rounded-full bg-red-500 animate-pulse"></span>
-                         <span className="text-[10px] font-black uppercase tracking-widest bg-black/80 backdrop-blur-md px-4 py-1 rounded-full border border-red-500/30">Interface Legada</span>
+                    <div className="absolute -inset-2 bg-red-600/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div className="relative block rounded-[4rem] overflow-hidden border border-white/5 bg-black/40 shadow-2xl">
+                      <div className="absolute top-10 left-10 z-30 flex items-center gap-4">
+                         <span className="w-4 h-4 rounded-full bg-red-500 animate-pulse"></span>
+                         <span className="text-xs font-black uppercase tracking-widest bg-black/80 backdrop-blur-md px-6 py-2 rounded-full border border-red-500/20">Legacy Site</span>
                       </div>
-                      
-                      {/* Efeito de Scanner */}
-                      <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-                        <motion.div 
-                          animate={{ y: ["-100%", "200%"] }}
-                          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                          className="w-full h-1/2 bg-gradient-to-b from-transparent via-red-500/10 to-transparent"
-                        />
-                      </div>
-
-                      <img src="https://i.imgur.com/v8bzVKV.png" alt="Legado" className="w-full h-auto grayscale opacity-40 transition-all duration-700 group-hover:grayscale-0 group-hover:opacity-60" />
-                      
-                      <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
-                    </a>
-                    <div className="mt-8 space-y-4">
-                      <h5 className="text-2xl font-bold font-display uppercase tracking-tight">Obsolescência Digital</h5>
-                      <p className="text-gray-500 font-light italic">"O design anterior falhava em transmitir a segurança e o carinho que a escola oferece fisicamente. Era uma barreira fria entre o pai e a matrícula."</p>
+                      <img src="https://i.imgur.com/v8bzVKV.png" alt="Legacy" className="w-full h-auto grayscale opacity-40 transition-all duration-1000 group-hover:grayscale-0 group-hover:opacity-60" />
+                    </div>
+                    <div className="mt-12 space-y-6">
+                      <h5 className="text-3xl font-black font-display uppercase tracking-tight">Interest Loss</h5>
+                      <p className="text-gray-500 text-lg font-light leading-relaxed">"The old site was a static catalog that failed to convert visitors into actual enrollments."</p>
                     </div>
                   </motion.div>
 
-                  {/* Card Depois */}
                   <motion.div 
                     initial={{ x: 100, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     className="relative group"
                   >
-                    <div className="absolute -inset-2 bg-[#ff5a00]/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <a 
-                      href="https://colegioreacao.com" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="relative block rounded-[3rem] overflow-hidden border-2 border-[#ff5a00]/30 bg-black shadow-[0_0_80px_rgba(255,90,0,0.1)]"
-                    >
-                      <div className="absolute top-8 left-8 z-30 flex items-center gap-3">
-                         <span className="w-3 h-3 rounded-full bg-[#ff5a00] animate-pulse"></span>
-                         <span className="text-[10px] font-black uppercase tracking-widest bg-[#ff5a00] text-black px-4 py-1 rounded-full">Engenharia Vanguarda</span>
+                    <div className="absolute -inset-4 bg-[#ff5a00]/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div className="relative block rounded-[4rem] overflow-hidden border-2 border-[#ff5a00]/20 bg-[#0a0a0a] shadow-[0_0_100px_rgba(255,90,0,0.05)]">
+                      <div className="absolute top-10 left-10 z-30 flex items-center gap-4">
+                         <span className="w-4 h-4 rounded-full bg-[#ff5a00] animate-pulse"></span>
+                         <span className="text-xs font-black uppercase tracking-widest bg-[#ff5a00] text-black px-6 py-2 rounded-full">Sales Interface</span>
                       </div>
-
-                      {/* Efeito de Scanner Otimizado */}
-                      <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-                        <motion.div 
-                          animate={{ y: ["-100%", "200%"] }}
-                          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                          className="w-full h-1/4 bg-gradient-to-b from-transparent via-[#ff5a00]/20 to-transparent"
-                        />
-                      </div>
-
-                      <img src="https://i.imgur.com/JnlVmh8.png" alt="Depois" className="w-full h-auto" />
-                    </a>
-                    <div className="mt-8 space-y-4 text-right">
-                      <h5 className="text-2xl font-bold font-display uppercase tracking-tight text-[#ff5a00]">Design que Converte</h5>
-                      <p className="text-gray-300 font-light italic">"Criamos um ecossistema visual onde cada pixel foi planejado para reduzir a fricção e acelerar o agendamento da visita."</p>
+                      <img src="https://i.imgur.com/JnlVmh8.png" alt="After" className="w-full h-auto" />
+                    </div>
+                    <div className="mt-12 space-y-6 lg:text-right">
+                      <h5 className="text-3xl font-black font-display uppercase tracking-tight text-[#ff5a00]">Maximum Conversion</h5>
+                      <p className="text-gray-300 text-lg font-light leading-relaxed">"Strategic visual engineering. Every pixel was optimized to accelerate the lead's journey."</p>
                     </div>
                   </motion.div>
                 </div>
               </section>
 
-              {/* Seção 02: O Motor Interno (ERP) */}
+              {/* Section 02: Internal Engine */}
               <section className="relative">
-                {/* Background Decorativo ERP */}
-                <div className="absolute -top-40 right-0 w-[500px] h-[500px] bg-blue-500/5 blur-[150px] rounded-full pointer-events-none"></div>
+                <div className="absolute -top-40 right-0 w-[600px] h-[600px] bg-blue-600/5 blur-[180px] rounded-full pointer-events-none"></div>
                 
                 <motion.div 
                    initial={{ opacity: 0 }}
                    whileInView={{ opacity: 1 }}
-                   className="flex items-center gap-4 mb-20"
+                   className="flex items-center gap-6 mb-24"
                 >
-                  <Cpu className="text-blue-400" />
-                  <h4 className="font-bold uppercase tracking-[0.5em] text-xs text-blue-400/50">Módulo 02: Governança Operacional</h4>
+                  <Cpu className="text-blue-500 w-8 h-8" />
+                  <h4 className="font-bold uppercase tracking-[0.6em] text-sm text-blue-500/50">Module 02: Technical Performance</h4>
                 </motion.div>
 
-                <div className="grid lg:grid-cols-12 gap-16 items-center">
+                <div className="grid lg:grid-cols-12 gap-20 items-center">
                   <div className="lg:col-span-7 relative order-2 lg:order-1">
-                    {/* Elementos Flutuantes do Blueprint */}
                     <motion.div 
-                      animate={{ y: [0, -20, 0] }}
-                      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                      className="absolute -top-10 -left-10 z-20 p-4 bg-black/80 backdrop-blur-xl border border-blue-500/30 rounded-2xl shadow-2xl hidden md:block"
+                      whileHover={{ scale: 1.03, rotateY: 3 }}
+                      className="relative rounded-[4rem] overflow-hidden border border-blue-500/20 shadow-[0_0_120px_rgba(59,130,246,0.1)] transition-all duration-700"
                     >
-                      <Activity className="text-blue-400 mb-2" />
-                      <div className="text-[8px] text-gray-500 font-black uppercase tracking-widest">Server Status: Optimal</div>
-                    </motion.div>
-
-                    <motion.div 
-                      whileHover={{ scale: 1.02, rotateY: 5 }}
-                      className="relative rounded-[3rem] overflow-hidden border-2 border-blue-500/20 shadow-[0_0_100px_rgba(59,130,246,0.1)] perspective-1000"
-                    >
-                      <img src="https://i.imgur.com/3x4iV3H.png" alt="ERP Colégio Reação" className="w-full h-auto" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                      <img src="https://i.imgur.com/3x4iV3H.png" alt="Reação ERP" className="w-full h-auto" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                     </motion.div>
                   </div>
 
-                  <div className="lg:col-span-5 space-y-12 order-1 lg:order-2">
-                    <h3 className="text-4xl md:text-6xl font-black font-display uppercase tracking-tighter leading-none">
-                      A <span className="text-blue-400 italic">Arquitetura</span> do Suporte.
+                  <div className="lg:col-span-5 space-y-16 order-1 lg:order-2">
+                    <h3 className="text-5xl md:text-7xl font-black font-display uppercase tracking-tighter leading-[0.9]">
+                      Speed <span className="text-blue-500 italic">Matters.</span>
                     </h3>
-                    <div className="grid grid-cols-1 gap-8">
+                    <div className="grid grid-cols-1 gap-10">
                        {[
-                         { icon: <ClipboardList />, title: "Ordens de Serviço", desc: "Digitalização total das demandas de infraestrutura." },
-                         { icon: <Database />, title: "Ativos & Frota", desc: "Controle de hardware e equipamentos em tempo real." },
-                         { icon: <Users />, title: "Gestão Humana", desc: "Auditoria de acessos e performance da equipe técnica." },
-                         { icon: <TrendingUp />, title: "BI & Reports", desc: "Métricas consolidadas para decisões da diretoria." }
+                         { icon: <MousePointer2 />, title: "Fluid Interface", desc: "Instant navigation keeping the user engaged until the CTA." },
+                         { icon: <Database />, title: "Data Tracking", desc: "Real-time monitoring of every click for continuous funnel optimization." },
+                         { icon: <Users />, title: "User-Centric", desc: "Intuitive design removing any barrier between the lead and the sale." }
                        ].map((item, i) => (
                          <motion.div 
                            key={i}
                            initial={{ opacity: 0, x: 30 }}
                            whileInView={{ opacity: 1, x: 0 }}
-                           transition={{ delay: i * 0.1 }}
-                           className="flex gap-6 group"
+                           transition={{ delay: i * 0.15 }}
+                           className="flex gap-8 group"
                          >
-                           <div className="shrink-0 p-4 bg-blue-500/5 border border-blue-500/10 rounded-2xl text-blue-400 group-hover:bg-blue-500 group-hover:text-black transition-all">
+                           <div className="shrink-0 w-16 h-16 flex items-center justify-center bg-blue-500/10 border border-blue-500/20 rounded-[1.5rem] text-blue-500 group-hover:bg-blue-500 group-hover:text-black transition-all duration-500">
                               {item.icon}
                            </div>
-                           <div>
-                              <h6 className="text-white font-bold uppercase text-xs tracking-[0.2em] mb-2">{item.title}</h6>
-                              <p className="text-gray-500 text-sm font-light leading-relaxed">{item.desc}</p>
+                           <div className="pt-2">
+                              <h6 className="text-white font-black uppercase text-sm tracking-[0.3em] mb-3">{item.title}</h6>
+                              <p className="text-gray-500 text-base font-light leading-relaxed">{item.desc}</p>
                            </div>
                          </motion.div>
                        ))}
@@ -308,163 +247,125 @@ function App() {
                 </div>
               </section>
 
-              {/* Seção 03: Resultados (Data Visualization) */}
-              <section className="py-32 relative">
-                <div className="absolute inset-0 bg-white/[0.01] skew-y-3 rounded-[5rem]"></div>
+              {/* Section 03: Results */}
+              <section className="py-40 relative">
+                <div className="absolute inset-0 bg-white/[0.02] -skew-y-2 rounded-[6rem]"></div>
                 
-                <div className="relative z-10 grid lg:grid-cols-2 gap-24 items-start">
-                   <div className="space-y-8">
-                      <div className="inline-flex items-center gap-3 px-6 py-2 bg-[#ff5a00]/10 border border-[#ff5a00]/20 rounded-full text-[10px] font-black uppercase tracking-[0.4em] text-[#ff5a00]">
-                        <TrendingUp size={16} /> Performance Report
+                <div className="relative z-10 grid lg:grid-cols-2 gap-24 lg:gap-40 items-start">
+                   <div className="space-y-12">
+                      <div className="inline-flex items-center gap-4 px-8 py-3 bg-[#ff5a00]/10 border border-[#ff5a00]/20 rounded-full text-xs font-black uppercase tracking-[0.5em] text-[#ff5a00]">
+                        <TrendingUp size={18} /> Explosive ROI
                       </div>
-                      <h2 className="text-5xl md:text-8xl font-black font-display uppercase tracking-tighter leading-none">
-                        O impacto do <span className="text-[#ff5a00]">Código</span> nos <span className="italic">Resultados.</span>
+                      <h2 className="text-6xl md:text-8xl font-black font-display uppercase tracking-tighter leading-[0.85]">
+                        Design that <span className="text-[#ff5a00]">Sells</span> with <span className="italic text-white">Class.</span>
                       </h2>
-                      <p className="text-xl text-gray-500 font-light max-w-xl">
-                        A transformação não foi apenas estética. Foi uma reconfiguração completa do funil de vendas escolar.
+                      <p className="text-2xl text-gray-500 font-light max-w-xl leading-relaxed">
+                        Weskley Gomes engineering transformed an institutional portal into a 24/7 lead generation machine.
                       </p>
                       
-                      <div className="flex flex-col gap-10 pt-8">
-                         <div className="flex items-center gap-8">
+                      <div className="flex flex-col gap-14 pt-10">
+                         <div className="flex items-center gap-10">
                             <CountUp value="300" suffix="%" />
-                            <div className="h-px flex-grow bg-white/10"></div>
-                            <span className="text-xs font-bold uppercase tracking-widest text-gray-400">Conversão de Leads</span>
+                            <div className="h-px flex-grow bg-white/5"></div>
+                            <span className="text-sm font-bold uppercase tracking-[0.3em] text-gray-500">Conversion Increase</span>
                          </div>
-                         <div className="flex items-center gap-8">
-                            <CountUp value="0.8" suffix="s" />
-                            <div className="h-px flex-grow bg-white/10"></div>
-                            <span className="text-xs font-bold uppercase tracking-widest text-gray-400">Loading Speed</span>
+                         <div className="flex items-center gap-10">
+                            <CountUp value="0.7" suffix="s" />
+                            <div className="h-px flex-grow bg-white/5"></div>
+                            <span className="text-sm font-bold uppercase tracking-[0.3em] text-gray-500">Instant Loading</span>
                          </div>
                       </div>
                    </div>
 
-                   {/* Coluna Direita: Imagem e Explicação EMBAIXO */}
-                   <div className="flex flex-col gap-12">
+                   <div className="flex flex-col gap-16">
                     <motion.div 
                       whileHover={{ scale: 1.02 }}
-                      className="relative rounded-[4rem] overflow-hidden border border-white/10 bg-black/60 shadow-2xl p-4 md:p-8"
+                      className="relative rounded-[5rem] overflow-hidden border border-white/5 bg-[#0a0a0a] shadow-2xl p-6 md:p-12 transition-all duration-700"
                     >
-                      {/* Foto Limpa sem texto em cima */}
-                      <img src="https://i.imgur.com/3wVb3b0.png" alt="Gráfico de Resultados" className="w-full h-auto rounded-[3rem]" />
+                      <img src="https://i.imgur.com/3wVb3b0.png" alt="Results Graph" className="w-full h-auto rounded-[3.5rem]" />
                     </motion.div>
                     
-                    {/* Explicação posicionada claramente embaixo da foto */}
                     <motion.div 
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      className="p-10 bg-[#ff5a00]/5 border border-[#ff5a00]/10 rounded-[3rem] shadow-xl"
+                      className="p-12 md:p-16 bg-gradient-to-br from-[#ff5a00]/10 to-transparent border border-[#ff5a00]/20 rounded-[4rem] shadow-2xl relative overflow-hidden"
                     >
-                       <p className="text-gray-300 italic text-xl leading-relaxed">"Em 90 dias, o Colégio Reação atingiu a marca de escola mais buscada digitalmente na região, superando concorrentes com 20 anos de mercado."</p>
-                       <div className="mt-8 flex items-center gap-4">
-                          <div className="w-10 h-px bg-[#ff5a00]"></div>
-                          <span className="text-[10px] font-black uppercase tracking-widest text-[#ff5a00]">Direção Comercial // Colégio Reação</span>
+                       <div className="absolute top-0 right-0 p-8 opacity-10">
+                          <Activity size={80} className="text-[#ff5a00]" />
+                       </div>
+                       <p className="text-gray-300 italic text-2xl md:text-3xl leading-relaxed mb-12 relative z-10">
+                         "After the new site, our visit scheduling rate skyrocketed. The refined design brought in much higher quality leads."
+                       </p>
+                       <div className="flex items-center gap-6 relative z-10">
+                          <div className="w-16 h-[2px] bg-[#ff5a00]"></div>
+                          <span className="text-xs font-black uppercase tracking-[0.4em] text-[#ff5a00]">Marketing Board // Reação College</span>
                        </div>
                     </motion.div>
                    </div>
                 </div>
               </section>
 
-              {/* Call to Action Final - Surreal */}
-              <section className="relative py-40 flex flex-col items-center justify-center text-center">
+              {/* Final CTA */}
+              <section className="relative py-48 flex flex-col items-center justify-center text-center">
                  <motion.div 
-                   animate={{ 
-                     scale: [1, 1.2, 1],
-                     opacity: [0.1, 0.2, 0.1]
-                   }}
-                   transition={{ duration: 10, repeat: Infinity }}
-                   className="absolute inset-0 bg-[#ff5a00] blur-[200px] rounded-full"
+                   animate={{ scale: [1, 1.3, 1], opacity: [0.05, 0.15, 0.05] }}
+                   transition={{ duration: 12, repeat: Infinity }}
+                   className="absolute inset-0 bg-[#ff5a00] blur-[220px] rounded-full"
                  />
                  
-                 <div className="relative z-10 space-y-12">
-                    <h3 className="text-5xl md:text-8xl font-black font-display uppercase tracking-tighter text-white">
-                      Próxima Parada:<br />Sua <span className="text-[#ff5a00]">Liderança.</span>
+                 <div className="relative z-10 space-y-16">
+                    <h3 className="text-6xl md:text-9xl font-black font-display uppercase tracking-tighter text-white leading-none">
+                      Let's Build <br />your <span className="text-[#ff5a00]">Legacy.</span>
                     </h3>
-                    <motion.div 
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                       <a 
-                        href="https://wa.me/5561981535040?text=Weskley, vi o case surreal do Colégio Reação e preciso desse nível de engenharia na minha escola."
+                        href="https://wa.me/5561981535040?text=Weskley,%20I%20need%20a%20site%20that%20converts%20like%20Reação%20College."
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-4 bg-[#ff5a00] text-black font-black uppercase tracking-[0.2em] px-16 py-8 rounded-full shadow-[0_0_50px_rgba(255,90,0,0.5)] text-xl"
+                        className="inline-flex items-center gap-6 bg-[#ff5a00] text-black font-black uppercase tracking-[0.3em] px-20 py-10 rounded-full shadow-[0_0_60px_rgba(255,90,0,0.4)] text-2xl"
                       >
-                        Iniciar Transformação <ArrowRight />
+                        Scale Now <ArrowRight size={28} />
                       </a>
                     </motion.div>
-                    <p className="text-gray-500 text-xs font-bold uppercase tracking-[0.5em]">Edição Limitada de Consultoria Trimestral</p>
+                    <p className="text-gray-500 text-xs font-black uppercase tracking-[0.8em]">Premium Conversion Engineering</p>
                  </div>
               </section>
-
             </div>
           </CyberWrapper>
         );
 
       case 'metodo':
         return (
-          <CyberWrapper title="Engenharia de Matrículas" subtitle="O framework técnico que desenvolvi para remover a sorte da captação escolar.">
-            <div className="grid md:grid-cols-2 gap-12">
-              <div className="space-y-6">
-                <div className="flex gap-4 items-start">
-                  <div className="p-3 bg-[#ff5a00]/10 rounded-xl text-[#ff5a00]"><Code2 size={24} /></div>
+          <CyberWrapper title="SYSTEMIC Engineering" subtitle="The strategic design framework I developed to transform visitors into revenue assets.">
+            <div className="grid md:grid-cols-2 gap-20">
+              <div className="space-y-12">
+                <div className="flex gap-8 items-start">
+                  <div className="w-16 h-16 shrink-0 flex items-center justify-center bg-[#ff5a00]/10 rounded-2xl text-[#ff5a00] border border-[#ff5a00]/20"><MousePointer2 size={32} /></div>
                   <div>
-                    <h4 className="text-white font-bold uppercase mb-2">Infraestrutura Veloz</h4>
-                    <p className="text-gray-400">Desenvolvo cada projeto com foco em mobile-first, garantindo autoridade instantânea para sua escola.</p>
+                    <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Funnel Audit</h4>
+                    <p className="text-gray-500 text-lg font-light leading-relaxed">We map every touchpoint to ensure your site is a straight line between the lead and the conversion.</p>
                   </div>
                 </div>
-                <div className="flex gap-4 items-start">
-                  <div className="p-3 bg-[#ff5a00]/10 rounded-xl text-[#ff5a00]"><BarChart3 size={24} /></div>
+                <div className="flex gap-8 items-start">
+                  <div className="w-16 h-16 shrink-0 flex items-center justify-center bg-[#ff5a00]/10 rounded-2xl text-[#ff5a00] border border-[#ff5a00]/20"><Activity size={32} /></div>
                   <div>
-                    <h4 className="text-white font-bold uppercase mb-2">Dados Geográficos</h4>
-                    <p className="text-gray-400">Minha estratégia foca o tráfego pago nos bairros certos, otimizando seu investimento.</p>
+                    <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Performance UX</h4>
+                    <p className="text-gray-500 text-lg font-light leading-relaxed">Ultra-light and fast interfaces, designed to maintain lead attention and eliminate bounce rates.</p>
                   </div>
                 </div>
               </div>
-              <div className="bg-white/5 p-8 rounded-3xl border border-white/10 flex items-center justify-center">
-                <p className="text-center italic text-gray-500">Framework Weskley Gomes V2.5 disponível para parceiros.</p>
+              <div className="bg-[#0a0a0a] p-16 rounded-[4rem] border border-white/5 flex flex-col items-center justify-center text-center shadow-2xl">
+                <div className="w-24 h-[2px] bg-[#ff5a00] mb-8"></div>
+                <p className="text-2xl font-light text-gray-400 italic mb-4">"Design is the silent ambassador of your brand."</p>
+                <span className="text-xs font-black uppercase tracking-[0.4em] text-gray-600">Framework Weskley Gomes V4.0</span>
               </div>
-            </div>
-          </CyberWrapper>
-        );
-      case 'servicos':
-        return (
-          <CyberWrapper title="Minhas Engrenagens" subtitle="Soluções educacionais desenhadas por quem entende de escala.">
-            <div className="h-40 flex items-center justify-center text-gray-500 italic">Explore como loto instituições de ensino de elite.</div>
-          </CyberWrapper>
-        );
-      case 'portfolio':
-        return (
-          <CyberWrapper title="Showcase de Projetos" subtitle="Explore a qualidade técnica do meu trabalho aplicado ao ensino.">
-            <div className="h-40 flex items-center justify-center text-gray-500 italic">Projetos reais que confiam na minha visão estratégica.</div>
-          </CyberWrapper>
-        );
-      case 'faq':
-        return (
-          <CyberWrapper title="Dúvidas Frequentes" subtitle="O que você precisa saber sobre trabalhar comigo.">
-            <div className="h-40 flex items-center justify-center text-gray-500 italic">Consultoria especializada em gestão escolar.</div>
-          </CyberWrapper>
-        );
-      case 'privacidade':
-      case 'termos':
-      case 'cookies':
-        return (
-          <CyberWrapper title={currentRoute.charAt(0).toUpperCase() + currentRoute.slice(1)} subtitle="Informações legais.">
-            <div className="space-y-6">
-              <div className="flex gap-3 items-center text-[#ff5a00] mb-4">
-                <ShieldCheck size={24} />
-                <span className="font-bold uppercase tracking-widest">Segurança de Dados</span>
-              </div>
-              <p className="text-gray-400 leading-relaxed">
-                Trato os dados de famílias e alunos com o máximo sigilo e segurança técnica, seguindo a LGPD.
-              </p>
-              <div className="h-20 bg-white/5 rounded-xl border border-white/5 animate-pulse"></div>
             </div>
           </CyberWrapper>
         );
       default:
         return (
-          <CyberWrapper title="Weskley Gomes">
-            <div className="h-40 flex items-center justify-center text-gray-500 italic">Página em construção.</div>
+          <CyberWrapper title="Under Construction" subtitle="Page under technical maintenance.">
+            <div className="h-40 flex items-center justify-center text-gray-500 italic text-xl">Archiving logs...</div>
           </CyberWrapper>
         );
     }
@@ -483,7 +384,6 @@ function App() {
       
       <style>{`
         .perspective-1000 { perspective: 1000px; }
-        .perspective-2000 { perspective: 2000px; }
         @keyframes scroll {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
@@ -493,15 +393,11 @@ function App() {
           20% { transform: translateX(250%) skewX(-25deg); }
           100% { transform: translateX(250%) skewX(-25deg); }
         }
-        .animate-infinite-shine {
-          animation: infinite-shine 4s infinite ease-in-out;
-        }
         html {
           scroll-behavior: smooth;
         }
         body {
           background-color: #050505;
-          overflow-x: hidden;
         }
       `}</style>
     </div>

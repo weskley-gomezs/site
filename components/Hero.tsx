@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { ThreeDCore } from './ThreeDCore';
 
 export const Hero: React.FC = () => {
-  const whatsappUrl = "https://wa.me/5561981535040?text=Olá! Vi o seu trabalho com engenharia de sistemas e gostaria de um diagnóstico para o meu negócio.";
+  const whatsappUrl = "https://wa.me/5561981535040?text=Hello!%20I%20need%20a%20site%20that%20really%20converts%20and%20I'd%20like%20an%20audit.";
 
   return (
     <section className="relative pt-32 pb-16 md:pt-48 md:pb-40 overflow-hidden bg-[#0a0a0a]">
@@ -22,31 +22,31 @@ export const Hero: React.FC = () => {
           >
             <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/10 rounded-full bg-white/5 mb-6 md:mb-8 mx-auto md:mx-0">
               <span className="w-2 h-2 bg-[#ff5a00] rounded-full animate-pulse"></span>
-              <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-gray-400">Arquiteto de Sistemas • Conversion Engineer</span>
+              <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-gray-400">Conversion Strategist • Senior Brand Designer</span>
             </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black font-display leading-[1.1] md:leading-[0.9] tracking-tighter mb-6 md:mb-8 uppercase">
-              Sistemas que<br />
-              <span className="text-[#ff5a00]">Governam</span><br />
-              o Crescimento.
+              SITES THAT<br />
+              <span className="text-[#ff5a00]">CONVERT</span><br />
+              AT SCALE.
             </h1>
             
             <p className="text-base md:text-lg lg:text-xl text-gray-400 font-light max-w-xl mb-8 md:mb-12 leading-relaxed mx-auto md:mx-0">
-              Desenvolvo a infraestrutura técnica (ERP/CRM) e a estratégia de captação necessária para negócios de elite operarem em escala máxima, com automação total de leads.
+              I don't just build layouts. I engineer high-fidelity sales ecosystems that transform expensive traffic into real profit through strategic visual engineering.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button variant="primary" className="w-full sm:w-auto" onClick={() => window.open(whatsappUrl, '_blank')}>
-                Escalar meu negócio
+                Sell Now
                 <ChevronRight size={20} />
               </Button>
               <Button variant="outline" className="w-full sm:w-auto" onClick={() => document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })}>
-                Soluções Enterprise
+                View Works
               </Button>
             </div>
           </motion.div>
 
-          {/* Visual Content - Globo Canvas 3D */}
+          {/* Visual Content - 3D Globe Canvas */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -60,7 +60,7 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Profundidade de Fundo */}
+      {/* Background Depth */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,90,0,0.05),transparent_70%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:60px_60px]" />

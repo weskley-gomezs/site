@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from './Button';
-import { Layout, Database, TrendingUp, Cpu, Terminal, ShieldCheck } from 'lucide-react';
+import { Layout, Database, TrendingUp, Cpu, Terminal, ShieldCheck, Rocket, LayoutDashboard } from 'lucide-react';
 
 const ServiceCard: React.FC<{ icon: React.ReactNode; title: string; items: string[]; link: string; badge?: string }> = ({ icon, title, items, link, badge }) => (
   <div className="flex flex-col h-full glass-card p-8 md:p-10 hover:border-[#ff5a00] transition-all duration-500 rounded-[2rem] md:rounded-[3rem] relative group">
@@ -22,66 +22,66 @@ const ServiceCard: React.FC<{ icon: React.ReactNode; title: string; items: strin
         </li>
       ))}
     </ul>
-    <Button variant="outline" className="w-full text-xs md:text-sm py-3 md:py-4 rounded-xl md:rounded-2xl" onClick={() => window.open(link, '_blank')}>
-      Diagnóstico de Sistema
+    <Button variant="outline" className="w-full text-xs md:text-sm py-4 rounded-2xl" onClick={() => window.open(link, '_blank')}>
+      Get Quote
     </Button>
   </div>
 );
 
 export const Services: React.FC = () => {
-  const getWhatsappUrl = (service: string) => `https://wa.me/5561981535040?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20${service}%20para%20o%20meu%20negócio.`;
+  const getWhatsappUrl = (service: string) => `https://wa.me/5561981535040?text=Hello,%20I'd%20like%20to%20know%20more%20about%20high-performance%20${service}.`;
 
   return (
     <section id="servicos" className="py-20 md:py-32 bg-black">
       <div className="container mx-auto px-6">
         <div className="mb-12 md:mb-20 text-center">
           <div className="inline-block px-4 py-1 border border-[#ff5a00]/20 rounded-full bg-[#ff5a00]/5 mb-4">
-             <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-[#ff5a00]">Core Engineering</span>
+             <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-[#ff5a00]">Conversion Engineering</span>
           </div>
           <h2 className="text-4xl md:text-7xl font-black font-display uppercase tracking-tighter mb-4">
-            SISTEMAS DE <span className="text-[#ff5a00]">ALTA PERFORMANCE</span>
+            HIGH-FIDELITY <span className="text-[#ff5a00]">SOLUTIONS</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto">
-            Desenvolvimento de software sob medida para automação de processos e gestão de clientes.
+            Interfaces planned for brands that don't accept mediocre results.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <ServiceCard 
-            badge="Custom ERP/CRM"
-            icon={<Database size={48} strokeWidth={1.5} />}
-            title="Sistemas de Gestão"
+            badge="Direct Response"
+            icon={<Rocket size={48} strokeWidth={1.5} />}
+            title="Landing Pages"
             items={[
-              "ERPs modulares e escaláveis",
-              "CRMs focados em conversão",
-              "Dashboards de BI em tempo real",
-              "Gestão de estoque e financeira"
+              "Sales LPs for Info Products",
+              "High-Conversion Capture Pages",
+              "Embedded Strategic Copywriting",
+              "Absolute Mobile-First Design"
             ]}
-            link={getWhatsappUrl("Sistemas de Gestão")}
+            link={getWhatsappUrl("Landing Pages")}
           />
           <ServiceCard 
-            badge="Lead Control"
-            icon={<Cpu size={48} strokeWidth={1.5} />}
-            title="Motores de Leads"
+            badge="Brand Authority"
+            icon={<LayoutDashboard size={48} strokeWidth={1.5} />}
+            title="Corporate Sites"
             items={[
-              "Integração total com APIs",
-              "Distribuição automática de leads",
-              "Automação de WhatsApp Business",
-              "Fluxos de nutrição inteligentes"
+              "Premium SaaS Institutional Sites",
+              "Luxury/High-End Portfolios",
+              "Manageable CMS (Custom Panel)",
+              "Next-Gen Technical SEO"
             ]}
-            link={getWhatsappUrl("Motores de Leads")}
+            link={getWhatsappUrl("Corporate Sites")}
           />
           <ServiceCard 
-            badge="Enterprise UX"
-            icon={<Terminal size={48} strokeWidth={1.5} />}
-            title="Software sob Medida"
+            badge="Sales Engines"
+            icon={<TrendingUp size={48} strokeWidth={1.5} />}
+            title="Ecosystems"
             items={[
-              "Desenvolvimento Full Stack",
-              "Cloud Architecture (AWS/GCP)",
-              "Segurança de dados (LGPD)",
-              "Manutenção e suporte dedicado"
+              "Full CRM Integration (RD/Hubspot)",
+              "Real-time Tracking Dashboards",
+              "Checkout/Sales Automation",
+              "Digital Funnel Consulting"
             ]}
-            link={getWhatsappUrl("Software sob Medida")}
+            link={getWhatsappUrl("Ecosystems")}
           />
         </div>
       </div>

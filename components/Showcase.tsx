@@ -44,10 +44,10 @@ export const Showcase: React.FC<ShowcaseProps> = ({ onNavigate }) => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-8 mb-12 md:mb-16">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-6xl font-black font-display uppercase tracking-tighter mb-4">
-              CASE DE <span className="text-[#ff5a00]">ENGENHARIA</span>
+              ENGINEERING <span className="text-[#ff5a00]">CASE</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-400">
-              Visualização de um ecossistema completo: do site de alta conversão ao sistema de gestão interna (ERP).
+              Visualization of a complete ecosystem: from the high-conversion site to the internal management system (ERP).
             </p>
           </div>
           <div className="hidden md:block text-right">
@@ -59,7 +59,7 @@ export const Showcase: React.FC<ShowcaseProps> = ({ onNavigate }) => {
         <div className="max-w-5xl mx-auto">
           <Mockup 
             imageUrl="https://i.imgur.com/aMoMRlq.png"
-            title="Sistemas Colégio Reação"
+            title="Reação College Systems"
             tag="ERP / CRM / Performance"
             onClick={() => onNavigate('case-reacao')}
           />
@@ -67,7 +67,7 @@ export const Showcase: React.FC<ShowcaseProps> = ({ onNavigate }) => {
 
         <div className="mt-16 md:mt-20 text-center">
           <p className="text-gray-500 text-xs md:text-sm font-bold tracking-[0.2em] uppercase italic px-4">
-            Clique para visualizar como Weskley Gomes construiu o sistema de gestão técnica e o motor de leads do Colégio Reação.
+            Click to view how Weskley Gomes built the technical management system and lead engine for Reação College.
           </p>
         </div>
       </div>

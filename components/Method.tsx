@@ -28,14 +28,14 @@ export const Method: React.FC = () => {
           <div className="md:w-1/3">
             <div className="sticky top-32">
               <h2 className="text-5xl md:text-7xl font-black font-display uppercase leading-none tracking-tighter mb-8">
-                MÉTODO <span className="text-[#ff5a00]">SYSTEMIC</span>
+                THE <span className="text-[#ff5a00]">SYSTEMIC</span> METHOD
               </h2>
               <p className="text-lg text-gray-500 mb-8 italic">
-                Nossa engenharia para transformar processos manuais em ativos digitais de alta performance.
+                Reverse engineering to create sites that don't just impress, they sell.
               </p>
               <div className="w-20 h-1 bg-[#ff5a00] mb-6"></div>
               <p className="text-sm text-gray-600 font-bold uppercase tracking-widest">
-                Arquitetura de Sistemas & Escala
+                Funnel Design & Conversion Logic
               </p>
             </div>
           </div>
@@ -44,23 +44,23 @@ export const Method: React.FC = () => {
             <div className="space-y-4">
               <Step 
                 number="01"
-                title="MAPEAMENTO DE FLUXO"
-                description="Analisamos cada etapa do seu negócio, desde a entrada do lead até o pós-venda. Identificamos gargalos manuais e pontos cegos na gestão de dados."
+                title="FUNNEL AUDIT"
+                description="We analyze your customer journey. Where do they click? Why do they leave? We identify the friction points preventing conversion on your current site."
               />
               <Step 
                 number="02"
-                title="ARQUITETURA DE DADOS"
-                description="Desenhamos a estrutura do sistema (DB, API, UI) focada em escalabilidade. Criamos a espinha dorsal tecnológica que sustentará o seu crescimento sem fricção."
+                title="STRATEGIC UX"
+                description="We design the interface focused on consumer psychology. Each section is planned to break objections and increase the visitor's desire to buy."
               />
               <Step 
                 number="03"
-                title="DESENVOLVIMENTO & AUTOMAÇÃO"
-                description="Implementamos as ferramentas de gestão e automação. Criamos dashboards que mostram o que realmente importa para a tomada de decisão executiva."
+                title="ELITE CODE"
+                description="Developed in React/Vite for extreme performance. Instant loading ensuring no lead is lost due to technical slowness."
               />
               <Step 
                 number="04"
-                title="OPERAÇÃO EM ESCALA"
-                description="Lançamento e monitoramento. Garantimos que o sistema opere em alta performance, suportando milhares de leads e transações com estabilidade total."
+                title="RESULT OPTIMIZATION"
+                description="Installation of advanced tracking tools and heatmaps to monitor and scale the conversion rate of your new digital ecosystem."
               />
             </div>
           </div>
