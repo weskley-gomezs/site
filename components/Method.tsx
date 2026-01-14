@@ -28,14 +28,14 @@ export const Method: React.FC = () => {
           <div className="md:w-1/3">
             <div className="sticky top-32">
               <h2 className="text-5xl md:text-7xl font-black font-display uppercase leading-none tracking-tighter mb-8">
-                THE <span className="text-[#ff5a00]">SYSTEMIC</span> METHOD
+                MÉTODO <span className="text-[#ff5a00]">CORE</span>
               </h2>
               <p className="text-lg text-gray-500 mb-8 italic">
-                Reverse engineering to create sites that don't just impress, they sell.
+                Projetando a base onde empresas de elite operam.
               </p>
               <div className="w-20 h-1 bg-[#ff5a00] mb-6"></div>
               <p className="text-sm text-gray-600 font-bold uppercase tracking-widest">
-                Funnel Design & Conversion Logic
+                Arquitetura Sistêmica & Engenharia
               </p>
             </div>
           </div>
@@ -44,23 +44,23 @@ export const Method: React.FC = () => {
             <div className="space-y-4">
               <Step 
                 number="01"
-                title="FUNNEL AUDIT"
-                description="We analyze your customer journey. Where do they click? Why do they leave? We identify the friction points preventing conversion on your current site."
+                title="AUDIT ARQUITETURAL"
+                description="Mapeamos toda a sua operação digital. Dos pipelines de CRM aos bancos de dados internos, identificamos os pontos de falha na sua estrutura atual."
               />
               <Step 
                 number="02"
-                title="STRATEGIC UX"
-                description="We design the interface focused on consumer psychology. Each section is planned to break objections and increase the visitor's desire to buy."
+                title="MAPEAMENTO DE SISTEMA"
+                description="Desenhamos o blueprint do seu novo ecossistema digital. Cada integração e fluxo de dados é planejado para performance de fricção zero."
               />
               <Step 
                 number="03"
-                title="ELITE CODE"
-                description="Developed in React/Vite for extreme performance. Instant loading ensuring no lead is lost due to technical slowness."
+                title="ENGENHARIA CORE"
+                description="Construímos a espinha dorsal. Backends de alta velocidade, módulos customizados de ERP/CRM e fluxos automatizados para suportar escala massiva."
               />
               <Step 
                 number="04"
-                title="RESULT OPTIMIZATION"
-                description="Installation of advanced tracking tools and heatmaps to monitor and scale the conversion rate of your new digital ecosystem."
+                title="GOVERNANÇA & DEPLOY"
+                description="Implementação de protocolos de rastreamento, monitoramento e segurança. Seu negócio agora opera em uma base soberana e escalável."
               />
             </div>
           </div>

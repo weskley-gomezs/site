@@ -30,25 +30,25 @@ export const FAQ: React.FC = () => {
     <section id="faq" className="py-24 bg-black">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl md:text-6xl font-black font-display uppercase tracking-tighter mb-16 text-center">
-          Common <span className="text-[#ff5a00]">Questions</span>
+          Dúvidas <span className="text-[#ff5a00]">Comuns</span>
         </h2>
         
         <div className="max-w-4xl mx-auto">
           <FAQItem 
-            question="Does it work for small businesses?"
-            answer="Yes. However, we focus on businesses that already understand digital value and seek scale. If you're just starting out but have a long-term vision, Weskley Gomes is the ideal partner to ensure your first step is technically perfect."
+            question="Funciona para pequenos negócios?"
+            answer="Sim. No entanto, focamos em negócios que já entendem o valor digital e buscam escala. Se você está começando mas tem visão de longo prazo, Weskley Gomes é o parceiro ideal para garantir que seu primeiro passo seja tecnicamente perfeito."
           />
           <FAQItem 
-            question="Do I need a large investment to start?"
-            answer="The investment is proportional to the goal. High-performance digital assets require serious technology and strategy. I am not the cheapest option on the market, but I am the investment with the greatest focus on real financial return through robust systems."
+            question="Preciso de um grande investimento para começar?"
+            answer="O investimento é proporcional ao objetivo. Ativos digitais de alta performance requerem tecnologia e estratégia sérias. Não sou a opção mais barata do mercado, mas sou o investimento com maior foco em retorno financeiro real através de sistemas robustos."
           />
           <FAQItem 
-            question="Do you deliver the source code?"
-            answer="Yes. Full transparency. For sites and SaaS, the code is yours. I do not lock clients into proprietary platforms or technical 'black boxes'."
+            question="Vocês entregam o código fonte?"
+            answer="Sim. Transparência total. Para sites e SaaS, o código é seu. Não prendo clientes em plataformas proprietárias ou 'caixas-pretas' técnicas."
           />
           <FAQItem 
-            question="How soon will I see results?"
-            answer="System projects and lead management usually take between 15 to 45 days for first-phase implementation. Operational results are immediate after deployment, with full lead flow optimization occurring within the first 90 days."
+            question="Em quanto tempo verei resultados?"
+            answer="Projetos de sistemas e gestão de leads costumam levar entre 15 a 45 dias para a implementação da primeira fase. Resultados operacionais são imediatos após o deploy, com otimização total de fluxo de leads ocorrendo nos primeiros 90 dias."
           />
         </div>
       </div>

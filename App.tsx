@@ -19,7 +19,9 @@ import {
   Database,
   ClipboardList,
   Activity,
-  MousePointer2
+  MousePointer2,
+  Layers,
+  Settings
 } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 
@@ -74,7 +76,7 @@ function App() {
           onClick={() => setCurrentRoute('home')}
           className="flex items-center gap-3 text-[#ff5a00] font-bold uppercase tracking-[0.4em] text-[10px] mb-16 px-8 py-3 border border-[#ff5a00]/30 rounded-full bg-[#ff5a00]/5 backdrop-blur-xl hover:bg-[#ff5a00]/10 transition-all"
         >
-          <ArrowLeft size={16} /> Back
+          <ArrowLeft size={16} /> Voltar
         </motion.button>
         
         <header className="mb-32 relative">
@@ -121,7 +123,7 @@ function App() {
               <div className="whitespace-nowrap flex animate-[scroll_50s_linear_infinite] gap-12">
                 {[...Array(10)].map((_, i) => (
                   <span key={i} className="text-7xl md:text-9xl font-black font-display text-white/[0.02] uppercase italic tracking-tighter">
-                    Weskley Gomes • Conversion Engineering • High Performance Sites • Conversion UX • Brand Strategy • 
+                    Weskley Gomes • Infraestrutura Digital • Estrutura de Negócios • Arquitetura de Sistemas • Core ERP/CRM • 
                   </span>
                 ))}
               </div>
@@ -135,18 +137,18 @@ function App() {
       
       case 'case-reacao':
         return (
-          <CyberWrapper title="Case Reação College" subtitle="The radical transition from an analog legacy to an immersive digital vanguard, unifying site and technical management.">
+          <CyberWrapper title="Case Colégio Reação" subtitle="A reforma arquitetural de um gigante da educação, unificando dados fragmentados em um núcleo digital soberano.">
             <div className="space-y-48">
               
-              {/* Section 01: Conversion Audit */}
+              {/* Section 01: Architecture Audit */}
               <section>
                 <motion.div 
                    initial={{ opacity: 0, y: 30 }}
                    whileInView={{ opacity: 1, y: 0 }}
                    className="flex items-center gap-6 mb-24"
                 >
-                  <Activity className="text-[#ff5a00] w-8 h-8" />
-                  <h4 className="font-bold uppercase tracking-[0.6em] text-sm text-gray-500">Module 01: Conversion Audit</h4>
+                  <Layers className="text-[#ff5a00] w-8 h-8" />
+                  <h4 className="font-bold uppercase tracking-[0.6em] text-sm text-gray-500">Módulo 01: Reforma Sistêmica</h4>
                 </motion.div>
 
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-32">
@@ -160,13 +162,13 @@ function App() {
                     <div className="relative block rounded-[4rem] overflow-hidden border border-white/5 bg-black/40 shadow-2xl">
                       <div className="absolute top-10 left-10 z-30 flex items-center gap-4">
                          <span className="w-4 h-4 rounded-full bg-red-500 animate-pulse"></span>
-                         <span className="text-xs font-black uppercase tracking-widest bg-black/80 backdrop-blur-md px-6 py-2 rounded-full border border-red-500/20">Legacy Site</span>
+                         <span className="text-xs font-black uppercase tracking-widest bg-black/80 backdrop-blur-md px-6 py-2 rounded-full border border-red-500/20">Dados Fragmentados</span>
                       </div>
                       <img src="https://i.imgur.com/v8bzVKV.png" alt="Legacy" className="w-full h-auto grayscale opacity-40 transition-all duration-1000 group-hover:grayscale-0 group-hover:opacity-60" />
                     </div>
                     <div className="mt-12 space-y-6">
-                      <h5 className="text-3xl font-black font-display uppercase tracking-tight">Interest Loss</h5>
-                      <p className="text-gray-500 text-lg font-light leading-relaxed">"The old site was a static catalog that failed to convert visitors into actual enrollments."</p>
+                      <h5 className="text-3xl font-black font-display uppercase tracking-tight">Caos Operacional</h5>
+                      <p className="text-gray-500 text-lg font-light leading-relaxed">"A informação estava espalhada em planilhas e silos, criando um ponto cego no ciclo de receita."</p>
                     </div>
                   </motion.div>
 
@@ -180,19 +182,19 @@ function App() {
                     <div className="relative block rounded-[4rem] overflow-hidden border-2 border-[#ff5a00]/20 bg-[#0a0a0a] shadow-[0_0_100px_rgba(255,90,0,0.05)]">
                       <div className="absolute top-10 left-10 z-30 flex items-center gap-4">
                          <span className="w-4 h-4 rounded-full bg-[#ff5a00] animate-pulse"></span>
-                         <span className="text-xs font-black uppercase tracking-widest bg-[#ff5a00] text-black px-6 py-2 rounded-full">Sales Interface</span>
+                         <span className="text-xs font-black uppercase tracking-widest bg-[#ff5a00] text-black px-6 py-2 rounded-full">Core Soberano</span>
                       </div>
-                      <img src="https://i.imgur.com/JnlVmh8.png" alt="After" className="w-full h-auto" />
+                      <img src="https://i.imgur.com/JnlVmh8.png" alt="Depois" className="w-full h-auto" />
                     </div>
                     <div className="mt-12 space-y-6 lg:text-right">
-                      <h5 className="text-3xl font-black font-display uppercase tracking-tight text-[#ff5a00]">Maximum Conversion</h5>
-                      <p className="text-gray-300 text-lg font-light leading-relaxed">"Strategic visual engineering. Every pixel was optimized to accelerate the lead's journey."</p>
+                      <h5 className="text-3xl font-black font-display uppercase tracking-tight text-[#ff5a00]">Governança Total</h5>
+                      <p className="text-gray-300 text-lg font-light leading-relaxed">"Uma arquitetura de sistema central que conecta cada ponto de contato, da captura de leads ao estoque do backend."</p>
                     </div>
                   </motion.div>
                 </div>
               </section>
 
-              {/* Section 02: Internal Engine */}
+              {/* Section 02: Core Engineering */}
               <section className="relative">
                 <div className="absolute -top-40 right-0 w-[600px] h-[600px] bg-blue-600/5 blur-[180px] rounded-full pointer-events-none"></div>
                 
@@ -202,7 +204,7 @@ function App() {
                    className="flex items-center gap-6 mb-24"
                 >
                   <Cpu className="text-blue-500 w-8 h-8" />
-                  <h4 className="font-bold uppercase tracking-[0.6em] text-sm text-blue-500/50">Module 02: Technical Performance</h4>
+                  <h4 className="font-bold uppercase tracking-[0.6em] text-sm text-blue-500/50">Módulo 02: Engenharia de Infraestrutura</h4>
                 </motion.div>
 
                 <div className="grid lg:grid-cols-12 gap-20 items-center">
@@ -211,20 +213,20 @@ function App() {
                       whileHover={{ scale: 1.03, rotateY: 3 }}
                       className="relative rounded-[4rem] overflow-hidden border border-blue-500/20 shadow-[0_0_120px_rgba(59,130,246,0.1)] transition-all duration-700"
                     >
-                      <img src="https://i.imgur.com/3x4iV3H.png" alt="Reação ERP" className="w-full h-auto" />
+                      <img src="https://i.imgur.com/3x4iV3H.png" alt="ERP Reação" className="w-full h-auto" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                     </motion.div>
                   </div>
 
                   <div className="lg:col-span-5 space-y-16 order-1 lg:order-2">
                     <h3 className="text-5xl md:text-7xl font-black font-display uppercase tracking-tighter leading-[0.9]">
-                      Speed <span className="text-blue-500 italic">Matters.</span>
+                      Core <span className="text-blue-500 italic">Robusto.</span>
                     </h3>
                     <div className="grid grid-cols-1 gap-10">
                        {[
-                         { icon: <MousePointer2 />, title: "Fluid Interface", desc: "Instant navigation keeping the user engaged until the CTA." },
-                         { icon: <Database />, title: "Data Tracking", desc: "Real-time monitoring of every click for continuous funnel optimization." },
-                         { icon: <Users />, title: "User-Centric", desc: "Intuitive design removing any barrier between the lead and the sale." }
+                         { icon: <Settings />, title: "Hub de Automação", desc: "Fluxos de trabalho customizados substituindo centenas de horas de trabalho administrativo manual." },
+                         { icon: <Database />, title: "Integridade de Dados", desc: "Design de banco de dados centralizado que garante relatórios 100% precisos." },
+                         { icon: <TrendingUp />, title: "Pronto para Escala", desc: "Uma arquitetura desenhada para crescer de 1 unidade para 100 sem necessidade de reescrita." }
                        ].map((item, i) => (
                          <motion.div 
                            key={i}
@@ -247,32 +249,32 @@ function App() {
                 </div>
               </section>
 
-              {/* Section 03: Results */}
+              {/* Section 03: Impact */}
               <section className="py-40 relative">
                 <div className="absolute inset-0 bg-white/[0.02] -skew-y-2 rounded-[6rem]"></div>
                 
                 <div className="relative z-10 grid lg:grid-cols-2 gap-24 lg:gap-40 items-start">
                    <div className="space-y-12">
                       <div className="inline-flex items-center gap-4 px-8 py-3 bg-[#ff5a00]/10 border border-[#ff5a00]/20 rounded-full text-xs font-black uppercase tracking-[0.5em] text-[#ff5a00]">
-                        <TrendingUp size={18} /> Explosive ROI
+                        <Activity size={18} /> Métricas de Performance
                       </div>
                       <h2 className="text-6xl md:text-8xl font-black font-display uppercase tracking-tighter leading-[0.85]">
-                        Design that <span className="text-[#ff5a00]">Sells</span> with <span className="italic text-white">Class.</span>
+                        Estruturas que <span className="text-[#ff5a00]">Empoderam</span> o crescimento.
                       </h2>
                       <p className="text-2xl text-gray-500 font-light max-w-xl leading-relaxed">
-                        Weskley Gomes engineering transformed an institutional portal into a 24/7 lead generation machine.
+                        Weskley Gomes não apenas construiu um site; ele projetou toda a espinha dorsal digital do colégio.
                       </p>
                       
                       <div className="flex flex-col gap-14 pt-10">
                          <div className="flex items-center gap-10">
-                            <CountUp value="300" suffix="%" />
+                            <CountUp value="100" suffix="%+" />
                             <div className="h-px flex-grow bg-white/5"></div>
-                            <span className="text-sm font-bold uppercase tracking-[0.3em] text-gray-500">Conversion Increase</span>
+                            <span className="text-sm font-bold uppercase tracking-[0.3em] text-gray-500">Velocidade Operacional</span>
                          </div>
                          <div className="flex items-center gap-10">
-                            <CountUp value="0.7" suffix="s" />
+                            <CountUp value="0" suffix="" />
                             <div className="h-px flex-grow bg-white/5"></div>
-                            <span className="text-sm font-bold uppercase tracking-[0.3em] text-gray-500">Instant Loading</span>
+                            <span className="text-sm font-bold uppercase tracking-[0.3em] text-gray-500">Redundância de Dados</span>
                          </div>
                       </div>
                    </div>
@@ -282,7 +284,7 @@ function App() {
                       whileHover={{ scale: 1.02 }}
                       className="relative rounded-[5rem] overflow-hidden border border-white/5 bg-[#0a0a0a] shadow-2xl p-6 md:p-12 transition-all duration-700"
                     >
-                      <img src="https://i.imgur.com/3wVb3b0.png" alt="Results Graph" className="w-full h-auto rounded-[3.5rem]" />
+                      <img src="https://i.imgur.com/3wVb3b0.png" alt="Gráfico de Resultados" className="w-full h-auto rounded-[3.5rem]" />
                     </motion.div>
                     
                     <motion.div 
@@ -291,14 +293,14 @@ function App() {
                       className="p-12 md:p-16 bg-gradient-to-br from-[#ff5a00]/10 to-transparent border border-[#ff5a00]/20 rounded-[4rem] shadow-2xl relative overflow-hidden"
                     >
                        <div className="absolute top-0 right-0 p-8 opacity-10">
-                          <Activity size={80} className="text-[#ff5a00]" />
+                          <Layers size={80} className="text-[#ff5a00]" />
                        </div>
                        <p className="text-gray-300 italic text-2xl md:text-3xl leading-relaxed mb-12 relative z-10">
-                         "After the new site, our visit scheduling rate skyrocketed. The refined design brought in much higher quality leads."
+                         "A transição foi impecável. Finalmente temos uma estrutura de negócio que não parece ser mantida por fitas adesivas."
                        </p>
                        <div className="flex items-center gap-6 relative z-10">
                           <div className="w-16 h-[2px] bg-[#ff5a00]"></div>
-                          <span className="text-xs font-black uppercase tracking-[0.4em] text-[#ff5a00]">Marketing Board // Reação College</span>
+                          <span className="text-xs font-black uppercase tracking-[0.4em] text-[#ff5a00]">Conselho de Operações // Colégio Reação</span>
                        </div>
                     </motion.div>
                    </div>
@@ -315,19 +317,19 @@ function App() {
                  
                  <div className="relative z-10 space-y-16">
                     <h3 className="text-6xl md:text-9xl font-black font-display uppercase tracking-tighter text-white leading-none">
-                      Let's Build <br />your <span className="text-[#ff5a00]">Legacy.</span>
+                      Arquitete o seu <br />Core <span className="text-[#ff5a00]">Digital.</span>
                     </h3>
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                       <a 
-                        href="https://wa.me/5561981535040?text=Weskley,%20I%20need%20a%20site%20that%20converts%20like%20Reação%20College."
+                        href="https://wa.me/5561981535040?text=Weskley,%20estou%20pronto%20para%20construir%20uma%20estrutura%20digital%20soberana."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-6 bg-[#ff5a00] text-black font-black uppercase tracking-[0.3em] px-20 py-10 rounded-full shadow-[0_0_60px_rgba(255,90,0,0.4)] text-2xl"
                       >
-                        Scale Now <ArrowRight size={28} />
+                        Audit Agora <ArrowRight size={28} />
                       </a>
                     </motion.div>
-                    <p className="text-gray-500 text-xs font-black uppercase tracking-[0.8em]">Premium Conversion Engineering</p>
+                    <p className="text-gray-500 text-xs font-black uppercase tracking-[0.8em]">Infraestrutura de Negócios de Elite</p>
                  </div>
               </section>
             </div>
@@ -336,36 +338,36 @@ function App() {
 
       case 'metodo':
         return (
-          <CyberWrapper title="SYSTEMIC Engineering" subtitle="The strategic design framework I developed to transform visitors into revenue assets.">
+          <CyberWrapper title="Engenharia CORE" subtitle="O framework arquitetural desenhado para transformar caos analógico em governança digital.">
             <div className="grid md:grid-cols-2 gap-20">
               <div className="space-y-12">
                 <div className="flex gap-8 items-start">
-                  <div className="w-16 h-16 shrink-0 flex items-center justify-center bg-[#ff5a00]/10 rounded-2xl text-[#ff5a00] border border-[#ff5a00]/20"><MousePointer2 size={32} /></div>
+                  <div className="w-16 h-16 shrink-0 flex items-center justify-center bg-[#ff5a00]/10 rounded-2xl text-[#ff5a00] border border-[#ff5a00]/20"><Settings size={32} /></div>
                   <div>
-                    <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Funnel Audit</h4>
-                    <p className="text-gray-500 text-lg font-light leading-relaxed">We map every touchpoint to ensure your site is a straight line between the lead and the conversion.</p>
+                    <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Audit Sistêmico</h4>
+                    <p className="text-gray-500 text-lg font-light leading-relaxed">Análise profunda dos seus pipelines atuais. Encontramos onde seu negócio vaza dados e recursos.</p>
                   </div>
                 </div>
                 <div className="flex gap-8 items-start">
-                  <div className="w-16 h-16 shrink-0 flex items-center justify-center bg-[#ff5a00]/10 rounded-2xl text-[#ff5a00] border border-[#ff5a00]/20"><Activity size={32} /></div>
+                  <div className="w-16 h-16 shrink-0 flex items-center justify-center bg-[#ff5a00]/10 rounded-2xl text-[#ff5a00] border border-[#ff5a00]/20"><Layers size={32} /></div>
                   <div>
-                    <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Performance UX</h4>
-                    <p className="text-gray-500 text-lg font-light leading-relaxed">Ultra-light and fast interfaces, designed to maintain lead attention and eliminate bounce rates.</p>
+                    <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Design de Governança</h4>
+                    <p className="text-gray-500 text-lg font-light leading-relaxed">Construímos as regras do seu novo ecossistema digital. Cada parte do seu negócio finalmente trabalha como uma só.</p>
                   </div>
                 </div>
               </div>
               <div className="bg-[#0a0a0a] p-16 rounded-[4rem] border border-white/5 flex flex-col items-center justify-center text-center shadow-2xl">
                 <div className="w-24 h-[2px] bg-[#ff5a00] mb-8"></div>
-                <p className="text-2xl font-light text-gray-400 italic mb-4">"Design is the silent ambassador of your brand."</p>
-                <span className="text-xs font-black uppercase tracking-[0.4em] text-gray-600">Framework Weskley Gomes V4.0</span>
+                <p className="text-2xl font-light text-gray-400 italic mb-4">"Estrutura precede a escala. Sem o core, você está apenas gerenciando o caos."</p>
+                <span className="text-xs font-black uppercase tracking-[0.4em] text-gray-600">Framework Weskley Gomes V5.0</span>
               </div>
             </div>
           </CyberWrapper>
         );
       default:
         return (
-          <CyberWrapper title="Under Construction" subtitle="Page under technical maintenance.">
-            <div className="h-40 flex items-center justify-center text-gray-500 italic text-xl">Archiving logs...</div>
+          <CyberWrapper title="Em Construção" subtitle="Página sob manutenção técnica.">
+            <div className="h-40 flex items-center justify-center text-gray-500 italic text-xl">Arquivando logs...</div>
           </CyberWrapper>
         );
     }

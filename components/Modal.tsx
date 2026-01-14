@@ -59,7 +59,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }
             onClick={onClose}
             className="px-8 py-3 bg-white/5 hover:bg-[#ff5a00] text-white hover:text-black font-bold uppercase tracking-widest rounded-full transition-all text-sm"
           >
-            Close
+            Fechar
           </button>
         </div>
       </div>

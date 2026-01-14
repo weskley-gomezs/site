@@ -1,15 +1,15 @@
 
 import React from 'react';
 import { Button } from './Button';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ShieldCheck, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ThreeDCore } from './ThreeDCore';
 
 export const Hero: React.FC = () => {
-  const whatsappUrl = "https://wa.me/5561981535040?text=Hello!%20I%20need%20a%20site%20that%20really%20converts%20and%20I'd%20like%20an%20audit.";
+  const whatsappUrl = "https://wa.me/5561981535040?text=Olá!%20Gostaria%20de%20solicitar%20um%20diagnóstico%20da%20minha%20arquitetura%20digital.";
 
   return (
-    <section className="relative pt-32 pb-16 md:pt-48 md:pb-40 overflow-hidden bg-[#0a0a0a]">
+    <section className="relative pt-32 pb-16 md:pt-48 md:pb-40 overflow-hidden bg-[#050505]">
       <div className="container mx-auto px-6 relative z-20">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-4">
           
@@ -20,29 +20,57 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full md:w-1/2 text-center md:text-left z-30 order-2 md:order-1"
           >
-            <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/10 rounded-full bg-white/5 mb-6 md:mb-8 mx-auto md:mx-0">
-              <span className="w-2 h-2 bg-[#ff5a00] rounded-full animate-pulse"></span>
-              <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-gray-400">Conversion Strategist • Senior Brand Designer</span>
+            <div className="inline-flex items-center gap-4 px-5 py-2.5 border border-white/10 rounded-full bg-white/5 mb-8 md:mb-12 mx-auto md:mx-0">
+              <span className="w-2 h-2 bg-[#ff5a00] rounded-full animate-pulse shadow-[0_0_10px_#ff5a00]"></span>
+              <span className="text-[10px] md:text-xs font-black tracking-[0.3em] uppercase text-gray-400">Infraestrutura & Arquitetura de Negócios</span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black font-display leading-[1.1] md:leading-[0.9] tracking-tighter mb-6 md:mb-8 uppercase">
-              SITES THAT<br />
-              <span className="text-[#ff5a00]">CONVERT</span><br />
-              AT SCALE.
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black font-display leading-[1.1] md:leading-[0.9] tracking-tighter mb-8 md:mb-10 uppercase">
+              O CORE<br />
+              <span className="text-[#ff5a00]">DIGITAL</span> DO SEU<br />
+              NEGÓCIO.
             </h1>
             
-            <p className="text-base md:text-lg lg:text-xl text-gray-400 font-light max-w-xl mb-8 md:mb-12 leading-relaxed mx-auto md:mx-0">
-              I don't just build layouts. I engineer high-fidelity sales ecosystems that transform expensive traffic into real profit through strategic visual engineering.
+            <p className="text-base md:text-lg lg:text-xl text-gray-500 font-light max-w-xl mb-12 md:mb-16 leading-relaxed mx-auto md:mx-0">
+              Engenharia de alta fidelidade para empresas de elite. Construímos o esqueleto técnico que suporta escala massiva sem gerar gargalos operacionais.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row gap-8 justify-center md:justify-start items-center">
               <Button variant="primary" className="w-full sm:w-auto" onClick={() => window.open(whatsappUrl, '_blank')}>
-                Sell Now
-                <ChevronRight size={20} />
+                Solicitar Arquitetura
+                <motion.span
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <ArrowRight size={18} strokeWidth={3} />
+                </motion.span>
               </Button>
-              <Button variant="outline" className="w-full sm:w-auto" onClick={() => document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })}>
-                View Works
-              </Button>
+              <button 
+                onClick={() => document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })}
+                className="group flex items-center gap-4 text-xs md:text-sm font-black uppercase tracking-[0.4em] text-white hover:text-[#ff5a00] transition-all relative py-2"
+              >
+                Ver Ecossistemas
+                <div className="relative overflow-hidden w-8 group-hover:w-12 h-px transition-all">
+                  <div className="absolute inset-0 bg-white/30"></div>
+                  <motion.div 
+                    initial={{ x: -50 }}
+                    animate={{ x: 50 }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-[#ff5a00] to-transparent"
+                  />
+                </div>
+              </button>
+            </div>
+
+            <div className="mt-20 flex items-center gap-8 opacity-30 justify-center md:justify-start">
+              <div className="flex items-center gap-2 group cursor-default">
+                <ShieldCheck size={16} className="group-hover:text-[#ff5a00] transition-colors" />
+                <span className="text-[10px] font-bold uppercase tracking-widest group-hover:text-white transition-colors">Sistemas Soberanos</span>
+              </div>
+              <div className="flex items-center gap-2 group cursor-default">
+                <ChevronRight size={16} className="rotate-90 group-hover:text-[#ff5a00] transition-colors" />
+                <span className="text-[10px] font-bold uppercase tracking-widest group-hover:text-white transition-colors">Escala Determinística</span>
+              </div>
             </div>
           </motion.div>
 
@@ -58,12 +86,6 @@ export const Hero: React.FC = () => {
             </div>
           </motion.div>
         </div>
-      </div>
-
-      {/* Background Depth */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,90,0,0.05),transparent_70%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
     </section>
   );

@@ -9,7 +9,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-  const whatsappUrl = "https://wa.me/5561981535040?text=Hello,%20I'm%20from%20the%20website%20and%20I'd%20like%20a%20strategic%20audit%20for%20my%20business.";
+  const whatsappUrl = "https://wa.me/5561981535040?text=Olá,%20sou%20do%20site%20e%20gostaria%20de%20uma%20audit%20estratégico%20para%20o%20meu%20negócio.";
 
   const socials = {
     instagram: "https://www.instagram.com/weskley_gomezs/"
@@ -28,19 +28,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto text-center mb-24">
           <h2 className="text-5xl md:text-8xl font-black font-display uppercase tracking-tighter leading-none mb-8">
-            Ready for <br />
-            <span className="text-[#ff5a00]">Total Scale?</span>
+            Pronto para <br />
+            <span className="text-[#ff5a00]">Escala Total?</span>
           </h2>
           <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-            No-obligation infrastructure and management audit. A technical conversation to identify how to automate your growth.
+            Audit de infraestrutura e gestão sem compromisso. Uma conversa técnica para identificar como automatizar o seu crescimento.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button variant="primary" className="px-16 py-6 text-xl" onClick={() => window.open(whatsappUrl, '_blank')}>
-              Validate
+              Validar
             </Button>
           </div>
           <p className="mt-8 text-sm font-bold tracking-[0.2em] text-gray-500 uppercase">
-            Consulting for robust systems and high lead management.
+            Consultoria para sistemas robustos e alta gestão de leads.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </a>
             </div>
             <p className="text-gray-500 max-w-xs mb-8">
-              Systems engineering and software design focused on elite businesses. Transforming processes into automatic revenue.
+              Engenharia de sistemas e design de software focado em negócios de elite. Transformando processos em receita automática.
             </p>
             <div className="flex gap-4">
               <a href={socials.instagram} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 hover:bg-[#ff5a00] text-gray-400 hover:text-white transition-all rounded-full">
@@ -65,20 +65,20 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
 
           <div>
-            <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">Company</h4>
+            <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">Empresa</h4>
             <ul className="space-y-4 text-gray-500 font-medium">
-              <li><button onClick={handleNav('metodo')} className="hover:text-white transition-colors text-left">SYSTEMIC Method</button></li>
-              <li><button onClick={handleNav('servicos')} className="hover:text-white transition-colors text-left">Enterprise Solutions</button></li>
-              <li><button onClick={handleNav('portfolio')} className="hover:text-white transition-colors text-left">Technical Showcase</button></li>
-              <li><button onClick={handleNav('faq')} className="hover:text-white transition-colors text-left">Support & FAQ</button></li>
+              <li><button onClick={handleNav('metodo')} className="hover:text-white transition-colors text-left">Método SYSTEMIC</button></li>
+              <li><button onClick={handleNav('servicos')} className="hover:text-white transition-colors text-left">Soluções Enterprise</button></li>
+              <li><button onClick={handleNav('portfolio')} className="hover:text-white transition-colors text-left">Cases Técnicos</button></li>
+              <li><button onClick={handleNav('faq')} className="hover:text-white transition-colors text-left">Suporte & FAQ</button></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">Legal</h4>
             <ul className="space-y-4 text-gray-500 font-medium">
-              <li><button onClick={handleNav('privacidade')} className="hover:text-white transition-colors text-left">Privacy</button></li>
-              <li><button onClick={handleNav('termos')} className="hover:text-white transition-colors text-left">Terms of Use</button></li>
+              <li><button onClick={handleNav('privacidade')} className="hover:text-white transition-colors text-left">Privacidade</button></li>
+              <li><button onClick={handleNav('termos')} className="hover:text-white transition-colors text-left">Termos de Uso</button></li>
               <li><button onClick={handleNav('cookies')} className="hover:text-white transition-colors text-left">Cookies</button></li>
             </ul>
           </div>
@@ -86,13 +86,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-600 text-sm">
-            © {new Date().getFullYear()} Weskley Gomes. All rights reserved. 
+            © {new Date().getFullYear()} Weskley Gomes. Todos os direitos reservados. 
           </p>
           <button 
             onClick={scrollToTop}
             className="flex items-center gap-2 text-gray-500 hover:text-white transition-all text-sm uppercase font-bold tracking-widest"
           >
-            Back to Top <ArrowUp size={16} />
+            Voltar ao Topo <ArrowUp size={16} />
           </button>
         </div>
       </div>
