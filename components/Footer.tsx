@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from './Button';
-import { Instagram, ArrowUp } from 'lucide-react';
+import { Instagram, ArrowUp, ArrowRight } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (route: 'home' | 'metodo' | 'servicos' | 'portfolio' | 'faq' | 'privacidade' | 'termos' | 'cookies') => void;
@@ -9,7 +9,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-  const whatsappUrl = "https://wa.me/5561981535040?text=Olá,%20sou%20do%20site%20e%20gostaria%20de%20uma%20audit%20estratégico%20para%20o%20meu%20negócio.";
+  const whatsappUrl = "https://wa.me/5561981535040?text=Weskley,%20decidi%20pela%20escala.%20Quero%20meu%20Diagnóstico%20Gratuito.";
 
   const socials = {
     instagram: "https://www.instagram.com/weskley_gomezs/"
@@ -21,78 +21,74 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   };
 
   return (
-    <footer id="contato" className="bg-deep-black pt-32 pb-12 relative overflow-hidden border-t border-white/5">
-      {/* Glow Effect */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[#ff5a00]/10 blur-[100px] rounded-full pointer-events-none"></div>
+    <footer id="contato" className="bg-black pt-40 pb-12 relative overflow-hidden border-t border-white/5">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[#ff5a00]/10 blur-[150px] rounded-full pointer-events-none"></div>
 
-      <div className="container mx-auto px-6">
-        <div className="max-w-5xl mx-auto text-center mb-24">
-          <h2 className="text-5xl md:text-8xl font-black font-display uppercase tracking-tighter leading-none mb-8">
-            Pronto para <br />
-            <span className="text-[#ff5a00]">Escala Total?</span>
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-6xl mx-auto text-center mb-32">
+          <h2 className="text-5xl md:text-8xl lg:text-9xl font-black font-display uppercase tracking-tighter leading-none mb-10">
+            Escalar ou <br />
+            <span className="text-[#ff5a00]">Quebrar.</span>
           </h2>
-          <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-            Audit de infraestrutura e gestão sem compromisso. Uma conversa técnica para identificar como automatizar o seu crescimento.
+          <p className="text-xl md:text-3xl text-gray-400 mb-16 max-w-3xl mx-auto font-light leading-relaxed">
+            O mercado não perdoa estruturas frágeis. Escolha o caminho da soberania digital e <span className="text-white font-bold italic">domine seu setor</span>.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button variant="primary" className="px-16 py-6 text-xl" onClick={() => window.open(whatsappUrl, '_blank')}>
-              Validar
+          
+          <div className="flex flex-col items-center gap-8">
+            <Button variant="primary" className="px-16 md:px-24 py-8 md:py-10 text-xl md:text-2xl" onClick={() => window.open(whatsappUrl, '_blank')}>
+              FAZER DIAGNÓSTICO GRATUITO <ArrowRight size={28} strokeWidth={4} />
             </Button>
+            <p className="text-[10px] font-black tracking-[0.8em] text-gray-700 uppercase">Projetado para Empresas de Alta Performance</p>
           </div>
-          <p className="mt-8 text-sm font-bold tracking-[0.2em] text-gray-500 uppercase">
-            Consultoria para sistemas robustos e alta gestão de leads.
-          </p>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-12 pt-16 border-t border-white/10">
+        <div className="grid md:grid-cols-4 gap-16 pt-20 border-t border-white/10">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
-              <a href="#" onClick={handleNav('home')} className="hover:opacity-80 transition-opacity">
-                <span className="font-display font-black uppercase tracking-tighter text-2xl">
-                  WESKLEY <span className="text-[#ff5a00]">GOMES</span>
+            <div className="mb-10">
+              <a href="#" onClick={handleNav('home')} className="group">
+                <span className="font-display font-black uppercase tracking-tighter text-3xl">
+                  WESKLEY <span className="text-[#ff5a00] group-hover:drop-shadow-[0_0_10px_#ff5a00] transition-all">GOMES</span>
                 </span>
               </a>
             </div>
-            <p className="text-gray-500 max-w-xs mb-8">
-              Engenharia de sistemas e design de software focado em negócios de elite. Transformando processos em receita automática.
+            <p className="text-gray-500 max-w-sm mb-10 text-lg leading-relaxed">
+              Arquiteto de Estruturas Digitais para o 1%. Transformamos tecnologia em motores de lucro imparáveis.
             </p>
-            <div className="flex gap-4">
-              <a href={socials.instagram} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 hover:bg-[#ff5a00] text-gray-400 hover:text-white transition-all rounded-full">
-                <span className="sr-only">Instagram</span>
-                <Instagram size={24} />
+            <div className="flex gap-6">
+              <a href={socials.instagram} target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 hover:bg-[#ff5a00] text-gray-400 hover:text-black transition-all rounded-2xl border border-white/5">
+                <Instagram size={28} />
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">Empresa</h4>
-            <ul className="space-y-4 text-gray-500 font-medium">
-              <li><button onClick={handleNav('metodo')} className="hover:text-white transition-colors text-left">Método SYSTEMIC</button></li>
-              <li><button onClick={handleNav('servicos')} className="hover:text-white transition-colors text-left">Soluções Enterprise</button></li>
-              <li><button onClick={handleNav('portfolio')} className="hover:text-white transition-colors text-left">Cases Técnicos</button></li>
-              <li><button onClick={handleNav('faq')} className="hover:text-white transition-colors text-left">Suporte & FAQ</button></li>
+            <h4 className="text-white font-black uppercase tracking-[0.3em] mb-10 text-xs">Acesso Core</h4>
+            <ul className="space-y-6 text-gray-500 font-bold uppercase text-[11px] tracking-widest">
+              <li><button onClick={handleNav('metodo')} className="hover:text-[#ff5a00] transition-colors">Método CORE</button></li>
+              <li><button onClick={handleNav('servicos')} className="hover:text-[#ff5a00] transition-colors">Soluções Scale</button></li>
+              <li><button onClick={handleNav('portfolio')} className="hover:text-[#ff5a00] transition-colors">Cases Reais</button></li>
+              <li><button onClick={handleNav('faq')} className="hover:text-[#ff5a00] transition-colors">Inteligência & FAQ</button></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">Legal</h4>
-            <ul className="space-y-4 text-gray-500 font-medium">
-              <li><button onClick={handleNav('privacidade')} className="hover:text-white transition-colors text-left">Privacidade</button></li>
-              <li><button onClick={handleNav('termos')} className="hover:text-white transition-colors text-left">Termos de Uso</button></li>
-              <li><button onClick={handleNav('cookies')} className="hover:text-white transition-colors text-left">Cookies</button></li>
+            <h4 className="text-white font-black uppercase tracking-[0.3em] mb-10 text-xs">Soberania</h4>
+            <ul className="space-y-6 text-gray-500 font-bold uppercase text-[11px] tracking-widest">
+              <li><button onClick={handleNav('privacidade')} className="hover:text-[#ff5a00] transition-colors">Privacidade</button></li>
+              <li><button onClick={handleNav('termos')} className="hover:text-[#ff5a00] transition-colors">Termos Core</button></li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-gray-600 text-sm">
-            © {new Date().getFullYear()} Weskley Gomes. Todos os direitos reservados. 
+        <div className="mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <p className="text-gray-700 text-[10px] font-black uppercase tracking-[0.4em]">
+            © {new Date().getFullYear()} Weskley Gomes • Engineering the 1%. 
           </p>
           <button 
             onClick={scrollToTop}
-            className="flex items-center gap-2 text-gray-500 hover:text-white transition-all text-sm uppercase font-bold tracking-widest"
+            className="group flex items-center gap-4 text-gray-500 hover:text-white transition-all text-[10px] font-black uppercase tracking-[0.4em]"
           >
-            Voltar ao Topo <ArrowUp size={16} />
+            VOLTAR AO TOPO <ArrowUp size={16} className="group-hover:-translate-y-1 transition-transform" />
           </button>
         </div>
       </div>

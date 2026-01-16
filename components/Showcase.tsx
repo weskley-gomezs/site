@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { ExternalLink, Search } from 'lucide-react';
+import { Search, ArrowRight } from 'lucide-react';
+import { Button } from './Button';
 
 interface ShowcaseProps {
   onNavigate: (route: any) => void;
@@ -9,7 +10,7 @@ interface ShowcaseProps {
 const Mockup: React.FC<{ imageUrl: string; title: string; tag: string; onClick: () => void }> = ({ imageUrl, title, tag, onClick }) => (
   <button 
     onClick={onClick}
-    className="group relative overflow-hidden bg-white/5 aspect-[4/3] sm:aspect-video border border-white/5 rounded-2xl md:rounded-3xl block w-full cursor-pointer transition-all duration-500 hover:border-[#ff5a00]/50"
+    className="group relative overflow-hidden bg-white/5 aspect-[4/3] sm:aspect-video border border-white/5 rounded-2xl md:rounded-3xl block w-full cursor-pointer transition-all duration-500 hover:border-[#ff5a00]/50 shadow-2xl"
   >
     <img 
       src={imageUrl} 
@@ -27,36 +28,31 @@ const Mockup: React.FC<{ imageUrl: string; title: string; tag: string; onClick: 
         </div>
       </div>
     </div>
-    
-    {/* Touch Indicator for Mobile */}
-    <div className="absolute top-4 right-4 md:hidden">
-       <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/10">
-          <Search size={14} className="text-white/50" />
-       </div>
-    </div>
   </button>
 );
 
 export const Showcase: React.FC<ShowcaseProps> = ({ onNavigate }) => {
+  const whatsappUrl = "https://wa.me/5561981535040?text=Weskley,%20vi%20os%20cases%20e%20quero%20o%20Diagnóstico%20Gratuito%20para%20minha%20empresa.";
+
   return (
     <section id="showcase" className="py-20 md:py-32 bg-deep-black">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-8 mb-12 md:mb-16">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-6xl font-black font-display uppercase tracking-tighter mb-4">
-              ENGINEERING <span className="text-[#ff5a00]">CASE</span>
+              PROJETOS DE <span className="text-[#ff5a00]">GUERRA</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-400">
-              Visualization of a complete ecosystem: from the high-conversion site to the internal management system (ERP).
+              Visualize a engenharia por trás de ecossistemas completos. Da interface de vendas ao core do ERP.
             </p>
           </div>
           <div className="hidden md:block text-right">
-            <p className="text-sm font-bold tracking-widest text-[#ff5a00] uppercase mb-1">Architecture Case</p>
+            <p className="text-sm font-bold tracking-widest text-[#ff5a00] uppercase mb-1">Architecture Showcase</p>
             <div className="h-1 w-24 bg-[#ff5a00] ml-auto"></div>
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto mb-20">
           <Mockup 
             imageUrl="https://i.imgur.com/aMoMRlq.png"
             title="Reação College Systems"
@@ -65,10 +61,14 @@ export const Showcase: React.FC<ShowcaseProps> = ({ onNavigate }) => {
           />
         </div>
 
-        <div className="mt-16 md:mt-20 text-center">
-          <p className="text-gray-500 text-xs md:text-sm font-bold tracking-[0.2em] uppercase italic px-4">
-            Click to view how Weskley Gomes built the technical management system and lead engine for Reação College.
-          </p>
+        <div className="flex flex-col items-center gap-8 bg-white/[0.02] border border-white/5 rounded-[4rem] p-12 md:p-20 text-center">
+          <h3 className="text-3xl md:text-5xl font-black font-display uppercase tracking-tighter text-white">
+            Sua empresa merece uma <br /><span className="text-[#ff5a00]">Estrutura de Elite.</span>
+          </h3>
+          <Button variant="primary" onClick={() => window.open(whatsappUrl, '_blank')}>
+            FAZER DIAGNÓSTICO GRATUITO <ArrowRight size={22} strokeWidth={4} />
+          </Button>
+          <p className="text-gray-500 text-[10px] font-black tracking-[0.6em] uppercase">Avaliação Técnica de Alto Nível</p>
         </div>
       </div>
     </section>
