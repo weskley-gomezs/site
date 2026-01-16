@@ -123,7 +123,7 @@ function App() {
               <div className="whitespace-nowrap flex animate-[scroll_50s_linear_infinite] gap-12">
                 {[...Array(10)].map((_, i) => (
                   <span key={i} className="text-7xl md:text-9xl font-black font-display text-white/[0.02] uppercase italic tracking-tighter">
-                    Weskley Gomes • Infraestrutura Digital • Estrutura de Negócios • Arquitetura de Sistemas • Core ERP/CRM • 
+                    Weskley Gomes • Lead é Vaidade • LTV é Lucro • Quem Educa Retém • Estrutura Precede a Escala • Engenharia de Fidelidade • 
                   </span>
                 ))}
               </div>
@@ -317,16 +317,16 @@ function App() {
                  
                  <div className="relative z-10 space-y-16">
                     <h3 className="text-6xl md:text-9xl font-black font-display uppercase tracking-tighter text-white leading-none">
-                      Arquitete o seu <br />Core <span className="text-[#ff5a00]">Digital.</span>
+                      Arquitete o seu <br />Core <span className="text-[#ff5a00]">LTV.</span>
                     </h3>
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                       <a 
-                        href="https://wa.me/5561981535040?text=Weskley,%20estou%20pronto%20para%20construir%20uma%20estrutura%20digital%20soberana."
+                        href="https://wa.me/5561981535040?text=Weskley,%20quero%20o%20Diagnóstico%20Gratuito%20para%20minha%20estrutura%20de%20LTV."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-6 bg-[#ff5a00] text-black font-black uppercase tracking-[0.3em] px-20 py-10 rounded-full shadow-[0_0_60px_rgba(255,90,0,0.4)] text-2xl"
                       >
-                        Audit Agora <ArrowRight size={28} />
+                        DIAGNÓSTICO AGORA <ArrowRight size={28} />
                       </a>
                     </motion.div>
                     <p className="text-gray-500 text-xs font-black uppercase tracking-[0.8em]">Infraestrutura de Negócios de Elite</p>
@@ -338,27 +338,27 @@ function App() {
 
       case 'metodo':
         return (
-          <CyberWrapper title="Engenharia CORE" subtitle="O framework arquitetural desenhado para transformar caos analógico em governança digital.">
+          <CyberWrapper title="Engenharia de Fidelidade" subtitle="O framework arquitetural desenhado para transformar leads voláteis em defensores de marca recorrentes.">
             <div className="grid md:grid-cols-2 gap-20">
               <div className="space-y-12">
                 <div className="flex gap-8 items-start">
                   <div className="w-16 h-16 shrink-0 flex items-center justify-center bg-[#ff5a00]/10 rounded-2xl text-[#ff5a00] border border-[#ff5a00]/20"><Settings size={32} /></div>
                   <div>
-                    <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Audit Sistêmico</h4>
-                    <p className="text-gray-500 text-lg font-light leading-relaxed">Análise profunda dos seus pipelines atuais. Encontramos onde seu negócio vaza dados e recursos.</p>
+                    <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Audit de Retenção</h4>
+                    <p className="text-gray-500 text-lg font-light leading-relaxed">Análise profunda dos seus pipelines de pós-venda. Encontramos onde seu negócio perde dinheiro com churn.</p>
                   </div>
                 </div>
                 <div className="flex gap-8 items-start">
                   <div className="w-16 h-16 shrink-0 flex items-center justify-center bg-[#ff5a00]/10 rounded-2xl text-[#ff5a00] border border-[#ff5a00]/20"><Layers size={32} /></div>
                   <div>
-                    <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Design de Governança</h4>
-                    <p className="text-gray-500 text-lg font-light leading-relaxed">Construímos as regras do seu novo ecossistema digital. Cada parte do seu negócio finalmente trabalha como uma só.</p>
+                    <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Design de Educação</h4>
+                    <p className="text-gray-500 text-lg font-light leading-relaxed">Construímos fluxos que educam o cliente. Quanto mais ele sabe, mais ele valoriza e menos ele custa para manter.</p>
                   </div>
                 </div>
               </div>
               <div className="bg-[#0a0a0a] p-16 rounded-[4rem] border border-white/5 flex flex-col items-center justify-center text-center shadow-2xl">
                 <div className="w-24 h-[2px] bg-[#ff5a00] mb-8"></div>
-                <p className="text-2xl font-light text-gray-400 italic mb-4">"Estrutura precede a escala. Sem o core, você está apenas gerenciando o caos."</p>
+                <p className="text-2xl font-light text-gray-400 italic mb-4">"Lead é vaidade. LTV é lucro. Quem foca no relacionamento, foca no patrimônio."</p>
                 <span className="text-xs font-black uppercase tracking-[0.4em] text-gray-600">Framework Weskley Gomes V5.0</span>
               </div>
             </div>

@@ -28,14 +28,14 @@ export const Method: React.FC = () => {
           <div className="md:w-1/3">
             <div className="sticky top-32">
               <h2 className="text-5xl md:text-7xl font-black font-display uppercase leading-none tracking-tighter mb-8">
-                MÉTODO <span className="text-[#ff5a00]">CORE</span>
+                MÉTODO <span className="text-[#ff5a00]">LTV</span>
               </h2>
               <p className="text-lg text-gray-500 mb-8 italic">
-                Projetando a base onde empresas de elite operam.
+                A estrutura digital que educa e retém clientes em escala.
               </p>
               <div className="w-20 h-1 bg-[#ff5a00] mb-6"></div>
               <p className="text-sm text-gray-600 font-bold uppercase tracking-widest">
-                Arquitetura Sistêmica & Engenharia
+                Relacionamento & Governança
               </p>
             </div>
           </div>
@@ -44,23 +44,23 @@ export const Method: React.FC = () => {
             <div className="space-y-4">
               <Step 
                 number="01"
-                title="AUDIT ARQUITETURAL"
-                description="Mapeamos toda a sua operação digital. Dos pipelines de CRM aos bancos de dados internos, identificamos os pontos de falha na sua estrutura atual."
+                title="ARQUITETURA DE CONTATO"
+                description="Organizamos todos os pontos de contato. Do primeiro clique no anúncio à mensagem de confirmação de entrega, tudo é mapeado e otimizado."
               />
               <Step 
                 number="02"
-                title="MAPEAMENTO DE SISTEMA"
-                description="Desenhamos o blueprint do seu novo ecossistema digital. Cada integração e fluxo de dados é planejado para performance de fricção zero."
+                title="EDUCAÇÃO EM FLUXO"
+                description="Criamos sistemas que ensinam seu cliente enquanto ele avança. Um cliente educado reclama menos, compra mais e não discute preço."
               />
               <Step 
                 number="03"
-                title="ENGENHARIA CORE"
-                description="Construímos a espinha dorsal. Backends de alta velocidade, módulos customizados de ERP/CRM e fluxos automatizados para suportar escala massiva."
+                title="AUTOMAÇÃO INTELIGENTE"
+                description="Implementamos fluxos de WhatsApp e Instagram que reduzem o atrito operacional e mantêm o relacionamento vivo 24/7 sem cansar seu time."
               />
               <Step 
                 number="04"
-                title="GOVERNANÇA & DEPLOY"
-                description="Implementação de protocolos de rastreamento, monitoramento e segurança. Seu negócio agora opera em uma base soberana e escalável."
+                title="SISTEMA DE DEFESA"
+                description="Transformamos clientes em defensores. Processos claros de indicação e fidelização que garantem que seu LTV seja o maior do setor."
               />
             </div>
           </div>
