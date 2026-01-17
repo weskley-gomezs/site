@@ -106,7 +106,7 @@ function App() {
               <div className="whitespace-nowrap flex animate-[scroll_50s_linear_infinite] gap-12">
                 {[...Array(10)].map((_, i) => (
                   <span key={i} className="text-7xl md:text-9xl font-black font-display text-white/[0.02] uppercase italic tracking-tighter">
-                    Weskley Gomes • Processo > Tráfego > Sorte • Lead é Vaidade • LTV é Lucro • Quem Educa Retém • 
+                    Weskley Gomes • Processo &gt; Tráfego &gt; Sorte • Lead é Vaidade • LTV é Lucro • Quem Educa Retém • 
                   </span>
                 ))}
               </div>
