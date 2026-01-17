@@ -32,16 +32,16 @@ export const SuccessCases: React.FC<SuccessCasesProps> = ({ onNavigate }) => {
           <div className="flex-1 flex flex-wrap justify-center md:justify-end items-center gap-16 md:gap-24">
             <motion.button 
               onClick={handleClick}
-              initial={{ opacity: 0.4 }}
+              initial={{ opacity: 0.8 }}
               whileInView={{ opacity: 1 }}
-              whileHover={{ y: -5 }}
+              whileHover={{ y: -5, opacity: 1 }}
               viewport={{ once: true }}
               className="group relative flex flex-col items-center gap-6"
             >
               <img 
                 src={logoUrl} 
                 alt="Colégio Reação" 
-                className="h-16 md:h-24 w-auto object-contain opacity-50 group-hover:opacity-100 transition-all duration-700 grayscale group-hover:grayscale-0" 
+                className="h-16 md:h-24 w-auto object-contain transition-all duration-700" 
               />
               <div className="flex items-center gap-4 bg-white/10 border-2 border-white/20 px-8 py-4 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
                 <span className="text-[11px] md:text-xs font-black uppercase tracking-[0.3em] text-white">Ver Arquitetura</span>

@@ -11,21 +11,14 @@ import { FAQ } from './components/FAQ';
 import { Footer } from './components/Footer';
 import { SuccessCases } from './components/SuccessCases';
 import { WhatsAppButton } from './components/WhatsAppButton';
+import { Prelanding } from './components/Prelanding';
+import { CaseReacao } from './components/CaseReacao';
 import { 
   ArrowLeft, 
-  Cpu,
-  ArrowRight,
-  TrendingUp,
-  Users,
-  Database,
-  ClipboardList,
-  Activity,
   CheckCircle2,
-  XCircle,
-  Layers,
-  Settings
+  XCircle
 } from 'lucide-react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 type Route = 'home' | 'metodo' | 'servicos' | 'portfolio' | 'faq' | 'privacidade' | 'termos' | 'cookies' | 'case-reacao';
 
@@ -94,7 +87,7 @@ const FilterSection: React.FC = () => {
 
 function App() {
   const [currentRoute, setCurrentRoute] = useState<Route>('home');
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [hasEntered, setHasEntered] = useState(false);
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -128,9 +121,7 @@ function App() {
       
       case 'case-reacao':
         return (
-          <div className="pt-32">
-             <SuccessCases onNavigate={setCurrentRoute} />
-          </div>
+          <CaseReacao onBack={() => setCurrentRoute('home')} />
         );
 
       default:
@@ -142,14 +133,27 @@ function App() {
 
   return (
     <div className="bg-[#050505] min-h-screen text-white selection:bg-[#ff5a00] selection:text-white relative overflow-x-hidden">
-      <Header onNavigate={setCurrentRoute} />
-      <main className="relative z-10">
-        <AnimatePresence mode="wait">
-          {renderContent()}
-        </AnimatePresence>
-      </main>
-      <Footer onNavigate={setCurrentRoute} />
-      <WhatsAppButton />
+      <AnimatePresence mode="wait">
+        {!hasEntered ? (
+          <Prelanding key="prelanding" onEnter={() => setHasEntered(true)} />
+        ) : (
+          <motion.div 
+            key="main-app"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            {currentRoute === 'home' && <Header onNavigate={setCurrentRoute} />}
+            <main className="relative z-10">
+              <AnimatePresence mode="wait">
+                {renderContent()}
+              </AnimatePresence>
+            </main>
+            {currentRoute === 'home' && <Footer onNavigate={setCurrentRoute} />}
+            <WhatsAppButton />
+          </motion.div>
+        )}
+      </AnimatePresence>
       
       <style>{`
         @keyframes scroll {
