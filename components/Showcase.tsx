@@ -1,13 +1,13 @@
 
 import React from 'react';
-import { Search, ArrowRight } from 'lucide-react';
+import { ExternalLink, ArrowRight } from 'lucide-react';
 import { Button } from './Button';
 
 interface ShowcaseProps {
   onNavigate: (route: any) => void;
 }
 
-const Mockup: React.FC<{ imageUrl: string; title: string; tag: string; onClick: () => void }> = ({ imageUrl, title, tag, onClick }) => (
+const Mockup: React.FC<{ imageUrl: string; title: string; tag: string; onClick: () => void; isExternal?: boolean }> = ({ imageUrl, title, tag, onClick, isExternal }) => (
   <button 
     onClick={onClick}
     className="group relative overflow-hidden bg-white/5 aspect-[4/3] sm:aspect-video border border-white/5 rounded-2xl md:rounded-3xl block w-full cursor-pointer transition-all duration-500 hover:border-[#ff5a00]/50 shadow-2xl"
@@ -24,7 +24,7 @@ const Mockup: React.FC<{ imageUrl: string; title: string; tag: string; onClick: 
            <h4 className="text-xl md:text-2xl font-bold font-display uppercase tracking-tight text-white leading-tight">{title}</h4>
         </div>
         <div className="bg-[#ff5a00] p-2 md:p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0 shadow-[0_0_20px_rgba(255,90,0,0.4)]">
-           <Search size={20} className="text-black" />
+           <ExternalLink size={20} className="text-black" />
         </div>
       </div>
     </div>
@@ -33,6 +33,7 @@ const Mockup: React.FC<{ imageUrl: string; title: string; tag: string; onClick: 
 
 export const Showcase: React.FC<ShowcaseProps> = ({ onNavigate }) => {
   const whatsappUrl = "https://wa.me/5561981535040?text=Weskley,%20vi%20os%20cases%20e%20quero%20o%20Diagnóstico%20Gratuito%20para%20minha%20empresa.";
+  const reacaoUrl = "https://colegioreacao.com";
 
   return (
     <section id="showcase" className="py-20 md:py-32 bg-deep-black">
@@ -57,7 +58,8 @@ export const Showcase: React.FC<ShowcaseProps> = ({ onNavigate }) => {
             imageUrl="https://i.imgur.com/aMoMRlq.png"
             title="Reação College Systems"
             tag="ERP / CRM / Performance"
-            onClick={() => onNavigate('case-reacao')}
+            isExternal={true}
+            onClick={() => window.open(reacaoUrl, '_blank', 'noopener,noreferrer')}
           />
         </div>
 
