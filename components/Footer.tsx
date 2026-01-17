@@ -46,13 +46,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="col-span-1 md:col-span-2">
             <div className="mb-10">
               <a href="#" onClick={handleNav('home')} className="group">
-                <span className="font-display font-black uppercase tracking-tighter text-3xl">
+                <span className="font-display font-black uppercase tracking-tighter text-3xl text-white">
                   WESKLEY <span className="text-[#ff5a00] group-hover:drop-shadow-[0_0_10px_#ff5a00] transition-all">GOMES</span>
                 </span>
               </a>
             </div>
             <p className="text-gray-500 max-w-sm mb-10 text-lg leading-relaxed">
-              Arquiteto de Estruturas de LTV. Transformamos clientes voláteis em ativos de lucro recorrente.
+              Arquiteto de Estruturas de LTV. Transformamos tecnologia em motores de lucro imparáveis.
             </p>
             <div className="flex gap-6">
               <a href={socials.instagram} target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 hover:bg-[#ff5a00] text-gray-400 hover:text-black transition-all rounded-2xl border border-white/5">
@@ -66,8 +66,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <ul className="space-y-6 text-gray-500 font-bold uppercase text-[11px] tracking-widest">
               <li><button onClick={handleNav('metodo')} className="hover:text-[#ff5a00] transition-colors">Método LTV</button></li>
               <li><button onClick={handleNav('servicos')} className="hover:text-[#ff5a00] transition-colors">Soluções Scale</button></li>
-              <li><button onClick={handleNav('portfolio')} className="hover:text-[#ff5a00] transition-colors">Cases de Relacionamento</button></li>
-              <li><button onClick={handleNav('faq')} className="hover:text-[#ff5a00] transition-colors">Dúvidas Técnicas</button></li>
+              <li><button onClick={handleNav('portfolio')} className="hover:text-[#ff5a00] transition-colors">Cases Reais</button></li>
+              <li><button onClick={handleNav('faq')} className="hover:text-[#ff5a00] transition-colors">FAQ Inteligente</button></li>
             </ul>
           </div>
 
@@ -82,13 +82,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         <div className="mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="text-gray-700 text-[10px] font-black uppercase tracking-[0.4em]">
-            © {new Date().getFullYear()} Weskley Gomes • Engineering for the 1%. 
+            © {new Date().getFullYear()} Weskley Gomes • Engineering the 1%. 
           </p>
           <button 
             onClick={scrollToTop}
             className="group flex items-center gap-4 text-gray-500 hover:text-white transition-all text-[10px] font-black uppercase tracking-[0.4em]"
           >
-            SISTEMA AO TOPO <ArrowUp size={16} className="group-hover:-translate-y-1 transition-transform" />
+            VOLTAR AO TOPO <ArrowUp size={16} className="group-hover:-translate-y-1 transition-transform" />
           </button>
         </div>
       </div>

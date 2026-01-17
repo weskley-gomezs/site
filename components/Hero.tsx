@@ -1,12 +1,12 @@
 
 import React from 'react';
 import { Button } from './Button';
-import { ArrowRight, Zap, Target, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Zap, Target } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ThreeDCore } from './ThreeDCore';
 
 export const Hero: React.FC = () => {
-  const whatsappUrl = "https://wa.me/5561981535040?text=Weskley,%20quero%20o%20Diagnóstico%20Gratuito.%20Minha%20estrutura%20atual%20não%20está%20gerando%20LTV.";
+  const whatsappUrl = "https://wa.me/5561981535040?text=Weskley,%20quero%20o%20Diagnóstico%20Gratuito.%20Minha%20estrutura%20atual%20bateu%20no%20teto.";
 
   return (
     <section className="relative pt-32 pb-16 md:pt-48 md:pb-40 overflow-hidden bg-[#050505]">
@@ -31,7 +31,7 @@ export const Hero: React.FC = () => {
             </h1>
             
             <p className="text-base md:text-xl lg:text-2xl text-gray-400 font-light max-w-xl mb-12 md:mb-16 leading-relaxed mx-auto md:mx-0">
-              Eu não ajudo empresas a vender mais uma vez. Eu construo o <span className="text-white font-bold italic">Core de LTV</span> que faz o mesmo cliente comprar de você para sempre.
+              O amadorismo técnico é o teto do seu lucro. Eu projeto o <span className="text-white font-bold italic">Core de LTV</span> que faz o mesmo cliente comprar de você repetidamente.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-8 justify-center md:justify-start items-center">
@@ -43,15 +43,15 @@ export const Hero: React.FC = () => {
               </Button>
             </div>
 
-            <div className="mt-20 flex items-center gap-10 justify-center md:justify-start grayscale opacity-40">
-               <div className="flex flex-col">
-                  <span className="text-3xl font-black font-display text-white">LEADS</span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-gray-600">São Vaidade</span>
+            <div className="mt-20 flex items-center gap-10 justify-center md:justify-start">
+               <div className="flex flex-col items-center md:items-start">
+                  <span className="text-3xl font-black font-display text-white">100%</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-gray-600">Soberania de Dados</span>
                </div>
                <div className="w-px h-10 bg-white/10"></div>
-               <div className="flex flex-col">
+               <div className="flex flex-col items-center md:items-start">
                   <span className="text-3xl font-black font-display text-[#ff5a00]">LTV</span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-gray-600">É Lucro Real</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-gray-600">Focado em Lucro</span>
                </div>
             </div>
           </motion.div>
