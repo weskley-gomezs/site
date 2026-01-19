@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, LayoutGrid, Cpu } from 'lucide-react';
@@ -184,7 +183,7 @@ export const Prelanding: React.FC<PrelandingProps> = ({ onEnter }) => {
              <div className="w-1.5 h-1.5 bg-[#ff5a00] rounded-full"></div>
              <span>Escala Máxima</span>
              <div className="w-1.5 h-1.5 bg-[#ff5a00] rounded-full"></div>
-             <span>Processo > Sorte</span>
+             <span>Processo &gt; Sorte</span>
           </div>
         </motion.div>
       </div>
